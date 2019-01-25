@@ -369,7 +369,7 @@
       
         
           
-          虽然很多开发者都是一直使用Oc和Swift开发iOS应用，但不得不说ReactNative的’learn-once write-anywhere’，对开发者还是有强大的吸引力的。用Js写逻辑，并且使用
+          虽然很多开发者都是一直使用Oc和Swift开发iOS应用，但不得不说ReactNative的’learn-once write-anywhere’，对开发者还是有强大的吸引力的。用Js写逻辑，并且使用原生的UI，不依托于浏览器，如今的Js越来越强大。即便是使用
           ...
           <!--noindex-->
           <div class="post-button text-center">
@@ -530,7 +530,9 @@
           NSOperation 是 abstract class 抽象类，不能直接使用，我们使用的时候，一般要子类化，或者直接使用系统提供的两个子类：
 
 NSInvocationOperation
-NSBlo
+NSBlockOperation
+
+虽然GCD使用起来很方便，但使用不
           ...
           <!--noindex-->
           <div class="post-button text-center">
@@ -690,7 +692,7 @@ NSBlo
           
           KVC的集合运算符是一些特定的，以@符号作为前缀的字符串，可以作为key path参数传入valueForKeyPath:方法中，以完成一些特定的便捷操作，如查找最大值，最小值，平均值等等。
 
-集合运
+集合运算符，除了支持常见的集合NSArray、NSSet、NSDi
           ...
           <!--noindex-->
           <div class="post-button text-center">
@@ -850,6 +852,7 @@ NSBlo
           
           之前一直在终端使用 ipfw脚本命令，来模拟低速网络，不过在Yosemite 之后Apple移除了ipfw 命令，but now  IPFW is gone, Moving to PF。
 GUI工具:
+Charles 这个抓包工具网络上介绍的已经很多了，就不再
           ...
           <!--noindex-->
           <div class="post-button text-center">
@@ -1007,7 +1010,7 @@ GUI工具:
       
         
           
-          我们都知道当使用 self 调用方法时，会从当前类的方法列表中开始找，如果没有，就从父类中再找。当使用 super 时，则从父类的方法列表中开始找，然后调用父类的这个方法。这里 self 代表的是当前
+          我们都知道当使用 self 调用方法时，会从当前类的方法列表中开始找，如果没有，就从父类中再找。当使用 super 时，则从父类的方法列表中开始找，然后调用父类的这个方法。这里 self 代表的是当前调用方法这个类的实例，super 代表父类，但具体是什么，或
           ...
           <!--noindex-->
           <div class="post-button text-center">
@@ -1165,7 +1168,8 @@ GUI工具:
       
         
           
-          -makeObjectsPerformSelector: 方法当我们需要对NSArray or NSSet里面的对象，执行同一个操作的时候，我们首先想到的可能是 for 循环。其实对于NSArray 
+          -makeObjectsPerformSelector: 方法当我们需要对NSArray or NSSet里面的对象，执行同一个操作的时候，我们首先想到的可能是 for 循环。其实对于NSArray 和 NSSet 都有个一简便的方法:
+-makeObject
           ...
           <!--noindex-->
           <div class="post-button text-center">
@@ -1324,7 +1328,7 @@ GUI工具:
         
           
           当JSExport 遇见 class_addProtocol通过上面那篇文章，我们已经大致了解了 JavaScriptCore的基础功能。下面我们想象一个这样的场景：
-如果，我需要在JS中设置某个UI
+如果，我需要在JS中设置某个UIView的backgroundColor，那么我可以总么做呢
           ...
           <!--noindex-->
           <div class="post-button text-center">
@@ -1482,7 +1486,7 @@ GUI工具:
       
         
           
-          随着iOS7 JavaScript引擎的开放，JS在移动端使用场景越来越多。之前，要想在Oc中调用Js，不可避免要使用webview，JavaScriptCore是可以不依托于webview的。比如当
+          随着iOS7 JavaScript引擎的开放，JS在移动端使用场景越来越多。之前，要想在Oc中调用Js，不可避免要使用webview，JavaScriptCore是可以不依托于webview的。比如当下比较火的 ReactNative、JSPatch 都有应用
           ...
           <!--noindex-->
           <div class="post-button text-center">
@@ -1641,7 +1645,7 @@ GUI工具:
         
           
           之前查看视图层级，一直使用reveal。每次新的工程要想使用reveal，都要引入它的framework，用起来还是挺麻烦的。
-这次Xcode 6带来了自己的 live view debugger，支
+这次Xcode 6带来了自己的 live view debugger，支持iOS8模拟器。除非想做逆向相关的处理，查看其它app的层
           ...
           <!--noindex-->
           <div class="post-button text-center">
@@ -1801,7 +1805,8 @@ GUI工具:
           
           生成随机数arc4random(void)//不够平衡推荐arc4random_uniform(u_int32_t)    
 生成 [0 , n )，之间的随机数：
-1NSUInteger foo =
+1NSUInteger foo = arc4random_uniform(n);
+生成 [mi
           ...
           <!--noindex-->
           <div class="post-button text-center">

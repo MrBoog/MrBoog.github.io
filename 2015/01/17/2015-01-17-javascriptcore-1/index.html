@@ -1,0 +1,851 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next pisces use-motion" lang="en">
+<head><meta name="generator" content="Hexo 3.8.0">
+  <meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+<meta name="theme-color" content="#222">
+
+
+
+  
+  
+    
+    
+  <script src="/lib/pace/pace.min.js?v=1.0.2"></script>
+  <link href="/lib/pace/pace-theme-minimal.min.css?v=1.0.2" rel="stylesheet">
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform">
+<meta http-equiv="Cache-Control" content="no-siteapp">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css">
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css">
+
+<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=5.1.4">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=5.1.4" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="JavaScriptCore,">
+
+
+
+
+
+
+
+
+
+
+<meta name="description" content="随着iOS7 JavaScript引擎的开放，JS在移动端使用场景越来越多。之前，要想在Oc中调用Js，不可避免要使用webview，JavaScriptCore是可以不依托于webview的。比如当下比较火的 ReactNative、JSPatch 都有应用这个库。大部分时候我们可能不需要手写Oc和JS的交互处理，但至少也应该可以看得懂，这样也方便我们理解一些Hybrid开源框架。 JavaSc">
+<meta name="keywords" content="JavaScriptCore">
+<meta property="og:type" content="article">
+<meta property="og:title" content="JavaScriptCore Part one">
+<meta property="og:url" content="http://yoursite.com/2015/01/17/2015-01-17-javascriptcore-1/index.html">
+<meta property="og:site_name" content="MrBoog Zone">
+<meta property="og:description" content="随着iOS7 JavaScript引擎的开放，JS在移动端使用场景越来越多。之前，要想在Oc中调用Js，不可避免要使用webview，JavaScriptCore是可以不依托于webview的。比如当下比较火的 ReactNative、JSPatch 都有应用这个库。大部分时候我们可能不需要手写Oc和JS的交互处理，但至少也应该可以看得懂，这样也方便我们理解一些Hybrid开源框架。 JavaSc">
+<meta property="og:locale" content="en">
+<meta property="og:updated_time" content="2019-01-25T06:40:04.057Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="JavaScriptCore Part one">
+<meta name="twitter:description" content="随着iOS7 JavaScript引擎的开放，JS在移动端使用场景越来越多。之前，要想在Oc中调用Js，不可避免要使用webview，JavaScriptCore是可以不依托于webview的。比如当下比较火的 ReactNative、JSPatch 都有应用这个库。大部分时候我们可能不需要手写Oc和JS的交互处理，但至少也应该可以看得懂，这样也方便我们理解一些Hybrid开源框架。 JavaSc">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Pisces',
+    version: '5.1.4',
+    sidebar: {"position":"left","display":"always","offset":12,"b2t":true,"scrollpercent":true,"onmobile":true},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: 'Author'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://yoursite.com/2015/01/17/2015-01-17-javascriptcore-1/">
+
+
+
+
+
+  <title>JavaScriptCore Part one | MrBoog Zone</title>
+  
+
+
+
+
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+            (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+          m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+  ga('create', 'UA-133159358-1', 'auto');
+  ga('send', 'pageview');
+</script>
+
+
+
+
+
+</head>
+
+<body itemscope="" itemtype="http://schema.org/WebPage" lang="en">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope="" itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">MrBoog Zone</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle">Welcome bro!</p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br>
+            
+            Home
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br>
+            
+            Tags
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br>
+            
+            Categories
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br>
+            
+            Archives
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2015/01/17/2015-01-17-javascriptcore-1/">
+
+    <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Huan Liu">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/thumbnail.JPG">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="MrBoog Zone">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">JavaScriptCore Part one</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2015-01-17T16:06:55+08:00">
+                2015-01-17
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">In</span>
+              
+              
+                <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing">
+                  <a href="/categories/tech/" itemprop="url" rel="index">
+                    <span itemprop="name">tech</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2015/01/17/2015-01-17-javascriptcore-1/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2015/01/17/2015-01-17-javascriptcore-1/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p>随着iOS7 JavaScript引擎的开放，JS在移动端使用场景越来越多。之前，要想在Oc中调用Js，不可避免要使用webview，JavaScriptCore是可以不依托于webview的。比如当下比较火的 ReactNative、JSPatch 都有应用这个库。大部分时候我们可能不需要手写Oc和JS的交互处理，但至少也应该可以看得懂，这样也方便我们理解一些Hybrid开源框架。</p>
+<p>JavaScriptCore框架中，两个比较重要的类：</p>
+<ul>
+<li><p>JSContext 作用域，一段JS的执行环境。</p>
+</li>
+<li><p>JSValue JS是弱类型语言(即变量的类型是不确定的,Oc、Swift都是强类型)，JSValue用来处理这种差异，对象转化。</p>
+</li>
+</ul>
+<h5 id="Oc-to-JS"><a href="#Oc-to-JS" class="headerlink" title="Oc to JS"></a>Oc to JS</h5><p>在Oc内部，通过JSContext类，直接调用一段JS，返回值包裹在JSValue类型中。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">JSContext *context = [[]JSContext alloc] init];</span><br><span class="line">// 获取错误信息 便于调试	</span><br><span class="line">context.exceptionHandler = ^(JSContext *context,JSValue *exception)&#123;</span><br><span class="line">	NSLog(@&quot;Error is : %@&quot;,exception);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">// 执行JS</span><br><span class="line">[context evaluateScript:@&quot;var num = 2 * 8&quot;];</span><br><span class="line">[context evaluateScript:@&quot;var colors = [&apos;black&apos;,&apos;blue&apos;,&apos;green&apos;,&apos;red&apos;]&quot;];</span><br><span class="line">[context evaluateScript:@&quot;var triple = function(value) &#123; return value * 3 &#125; &quot;];</span><br><span class="line"></span><br><span class="line">// 获取Context中创建的变量的值，包裹在JSValue中</span><br><span class="line">JSValue *num = [context objectForKeyedSubscript:@&quot;num&quot;];</span><br><span class="line">JSValue *colors = [context objectForKeyedSubscript:@&quot;colors&quot;];</span><br><span class="line">JSValue *colorName = [colors objectAtIndexedSubscript:1];</span><br><span class="line"></span><br><span class="line">// 调用JS函数，</span><br><span class="line">JSValue *function = [context objectForKeyedSubscript:@&quot;triple&quot;];</span><br><span class="line">JSValue *result = [function callWithArguments:@[@16]];</span><br></pre></td></tr></table></figure>
+<h5 id="JS-to-Oc"><a href="#JS-to-Oc" class="headerlink" title="JS to Oc"></a>JS to Oc</h5><p>context可设置block，JS通过调用block，来实现JS调用Oc。在使用中值得注意的是内存管理，要避免循环引用。如果在block，还需要调用JS，应使用[JSContext currentContext]取得上下文，不应该直接使用外部的context或者value。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">context[&quot;callback&quot;]	 = ^(NSArray *colorArray)&#123;</span><br><span class="line">	NSLog(@&quot;callback : %@&quot;,colorArray);</span><br><span class="line">&#125;</span><br><span class="line">[context evaluateScript:@&quot; callback( [\&quot;black\&quot;,\&quot;blue\&quot;,\&quot;green\&quot;] ) &quot;];</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">// 下面情况，注意避免循环引用</span><br><span class="line">[context evaluateScript:@&quot;var colorsCount = function(value) &#123; return value.length &#125;&quot;];</span><br><span class="line"></span><br><span class="line">   context[@&quot;callbackAgain&quot;] = ^(NSArray *colorArray)&#123;</span><br><span class="line">       </span><br><span class="line">       JSContext *curContext = [JSContext currentContext];</span><br><span class="line">       JSValue *colorsCount = [curContext evaluateScript:@&quot;colorsCount&quot;];</span><br><span class="line">       JSValue *count = [colorsCount callWithArguments:@[colorArray]];</span><br><span class="line">       NSLog(@&quot;%@&quot;,count);</span><br><span class="line">   &#125;;</span><br><span class="line">   [context evaluateScript:@&quot;callbackAgain( [\&quot;black\&quot;,\&quot;red\&quot;] )&quot;];</span><br></pre></td></tr></table></figure>
+<p>上述方法，传值都是限于 Foundation 类型。那JS种是否可以使用Oc的类的？这就要用到 JSExport 协议了。</p>
+<h5 id="使用-JSExport-协议"><a href="#使用-JSExport-协议" class="headerlink" title="使用 JSExport 协议"></a>使用 JSExport 协议</h5><p>创建一个CustomObject类，继承 ExportProtocol 协议</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">@protocol ExportProtocol &lt;JSExport&gt;</span><br><span class="line">- (void)log:(NSString *)string;</span><br><span class="line">@end</span><br><span class="line"></span><br><span class="line">@interface CustomObject : NSObject &lt;ExportProtocol&gt;</span><br><span class="line">@end</span><br><span class="line"></span><br><span class="line">@implementation CustomObject</span><br><span class="line">- (void)log:(NSString *)string&#123;</span><br><span class="line">	NSLog(@&quot; js : %@&quot;,string);</span><br><span class="line">&#125;</span><br><span class="line">@end</span><br></pre></td></tr></table></figure>
+<p>上面我们创建了一个可以给JS使用的Oc类，具体调用类似JS调用block，代码如下</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">context[@&quot;customObject&quot;] = [[CustomObject alloc] init];</span><br><span class="line"></span><br><span class="line">[context evaluateScript:@&quot; customObject.log(\&quot;Hello world\&quot;) &quot;];</span><br></pre></td></tr></table></figure>
+<p>这样，通过继承JSExport协议，我们就可以在JS中，调用Oc类的方法了。</p>
+
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/JavaScriptCore/" rel="tag"># JavaScriptCore</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2014/10/18/2014-10-18-xcode6-live-view-debugger/" rel="next" title="Xcode 6 live view debugger">
+                <i class="fa fa-chevron-left"></i> Xcode 6 live view debugger
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2015/02/10/2015-02-10-javascriptcore-2/" rel="prev" title="JavaScriptCore Part two">
+                JavaScriptCore Part two <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+    <div class="comments" id="comments">
+      <div id="disqus_thread">
+        <noscript>
+          Please enable JavaScript to view the
+          <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a>
+        </noscript>
+      </div>
+    </div>
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+      <div id="sidebar-dimmer"></div>
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            Table of Contents
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            Overview
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image" src="/images/thumbnail.JPG" alt="Huan Liu">
+            
+              <p class="site-author-name" itemprop="name">Huan Liu</p>
+              <p class="site-description motion-element" itemprop="description"></p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives/">
+              
+                  <span class="site-state-item-count">21</span>
+                  <span class="site-state-item-name">posts</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-categories">
+                <a href="/categories/index.html">
+                  <span class="site-state-item-count">2</span>
+                  <span class="site-state-item-name">categories</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                <a href="/tags/index.html">
+                  <span class="site-state-item-count">12</span>
+                  <span class="site-state-item-name">tags</span>
+                </a>
+              </div>
+            
+
+          </nav>
+
+          
+
+          
+            <div class="links-of-author motion-element">
+                
+                  <span class="links-of-author-item">
+                    <a href="https://github.com/MrBoog" target="_blank" title="GitHub">
+                      
+                        <i class="fa fa-fw fa-github"></i>GitHub</a>
+                  </span>
+                
+                  <span class="links-of-author-item">
+                    <a href="mailto:iosboog@163.com" target="_blank" title="E-Mail">
+                      
+                        <i class="fa fa-fw fa-envelope"></i>E-Mail</a>
+                  </span>
+                
+                  <span class="links-of-author-item">
+                    <a href="https://stackoverflow.com/users/2007403/boog" target="_blank" title="StackOverflow">
+                      
+                        <i class="fa fa-fw fa-stack-overflow"></i>StackOverflow</a>
+                  </span>
+                
+                  <span class="links-of-author-item">
+                    <a href="https://instagram.com/boogaloo.l" target="_blank" title="Instagram">
+                      
+                        <i class="fa fa-fw fa-instagram"></i>Instagram</a>
+                  </span>
+                
+            </div>
+          
+
+          
+          
+
+          
+          
+
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-5"><a class="nav-link" href="#Oc-to-JS"><span class="nav-number">1.</span> <span class="nav-text">Oc to JS</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#JS-to-Oc"><span class="nav-number">2.</span> <span class="nav-text">JS to Oc</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#使用-JSExport-协议"><span class="nav-number">3.</span> <span class="nav-text">使用 JSExport 协议</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+        <div class="back-to-top">
+          <i class="fa fa-arrow-up"></i>
+          
+            <span id="scrollpercent"><span>0</span>%</span>
+          
+        </div>
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; 2013 &mdash; <span itemprop="copyrightYear">2019</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Huan Liu</span>
+
+  
+</div>
+
+
+  <div class="powered-by">Powered by <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a></div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">Theme &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Pisces</a> v5.1.4</div>
+
+
+
+
+        
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.4"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.4"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  
+
+    
+      <script id="dsq-count-scr" src="https://disqus_3DtNmleMoQ.disqus.com/count.js" async></script>
+    
+
+    
+      <script type="text/javascript">
+        var disqus_config = function () {
+          this.page.url = 'http://yoursite.com/2015/01/17/2015-01-17-javascriptcore-1/';
+          this.page.identifier = '2015/01/17/2015-01-17-javascriptcore-1/';
+          this.page.title = 'JavaScriptCore Part one';
+        };
+        var d = document, s = d.createElement('script');
+        s.src = 'https://disqus_3DtNmleMoQ.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', '' + +new Date());
+        (d.head || d.body).appendChild(s);
+      </script>
+    
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+<script>
+(function(){
+    var bp = document.createElement('script');
+    var curProtocol = window.location.protocol.split(':')[0];
+    if (curProtocol === 'https') {
+        bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';        
+    }
+    else {
+        bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+    }
+    var s = document.getElementsByTagName("script")[0];
+    s.parentNode.insertBefore(bp, s);
+})();
+</script>
+
+
+  
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>

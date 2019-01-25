@@ -75,7 +75,7 @@
 
 
 
-  <meta name="keywords" content="Hexo, NexT">
+  <meta name="keywords" content="iOS, swift, objective-c, python">
 
 
 
@@ -174,7 +174,7 @@
       </a>
     </div>
       
-        <p class="site-subtitle">Welcome bro!</p>
+        <h1 class="site-subtitle" itemprop="description">Welcome bro!</h1>
       
   </div>
 
@@ -266,6 +266,164 @@
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2015/11/11/2015-11-11-helloreactnative/">
+
+    <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Huan Liu">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/thumbnail.JPG">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="MrBoog Zone">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h2 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2015/11/11/2015-11-11-helloreactnative/" itemprop="url">Hello ReactNative</a></h2>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2015-11-11T16:09:23+08:00">
+                2015-11-11
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">In</span>
+              
+              
+                <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing">
+                  <a href="/categories/tech/" itemprop="url" rel="index">
+                    <span itemprop="name">tech</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2015/11/11/2015-11-11-helloreactnative/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2015/11/11/2015-11-11-helloreactnative/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+          虽然很多开发者都是一直使用Oc和Swift开发iOS应用，但不得不说ReactNative的’learn-once write-anywhere’，对开发者还是有强大的吸引力的。用Js写逻辑，并且使用
+          ...
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2015/11/11/2015-11-11-helloreactnative/#more" rel="contents">
+              Read more &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="http://yoursite.com/2015/09/30/2015-09-30-nsoperation/">
 
     <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
@@ -283,9 +441,9 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">
+          <h2 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/2015/09/30/2015-09-30-nsoperation/" itemprop="url">NSOperation</a></h1>
+                <a class="post-title-link" href="/2015/09/30/2015-09-30-nsoperation/" itemprop="url">NSOperation</a></h2>
         
 
         <div class="post-meta">
@@ -369,68 +527,18 @@
       
         
           
-            <p>NSOperation 是 abstract class 抽象类，不能直接使用，我们使用的时候，一般要子类化，或者直接使用系统提供的两个子类：</p>
-<ul>
-<li>NSInvocationOperation</li>
-<li>NSBlockOperation</li>
-</ul>
-<p>虽然GCD使用起来很方便，但使用不当也会暴露一些问题，比如对任务状态的不好控制等。这可能导致有些我们本来需要取消掉的任务，一直在运行，占用资源。这些情况下我们可以考虑通过 NSOperationQueue 加强对任务的控制。</p>
-<hr>
-<h4 id="NSInvocationOperation"><a href="#NSInvocationOperation" class="headerlink" title="NSInvocationOperation"></a>NSInvocationOperation</h4><p>NSInvocationOperation是抽象类NSOperation的实体子类，可以直接使用。如果不结合NSOperationQueue，单独通过调用 start方法使用，NSInvocationOperation是非并发的操作。例如：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">   // 通过 start 直接调用，任务将在主线程中执行。</span><br><span class="line">   NSInvocationOperation *invocationOp = [[NSInvocationOperation alloc] initWithTarget:self selector:@selector(doSomeThingWithInvocation:) object:nil];</span><br><span class="line">   [invocationOp start];</span><br><span class="line"></span><br><span class="line">// 或者通过 addOperation 将任务加入队列，可在子线程中执行</span><br><span class="line">myOperationQueue = [[NSOperationQueue alloc] init];</span><br><span class="line">[myOperationQueue addOperation:invocationOp];</span><br></pre></td></tr></table></figure>
-<p>当然，在swift中,NSInvocation相关的类，都已经去掉了(不知道以后会不会加入)，也许NSInvocationOperation也是退出历史舞台的节奏。</p>
-<hr>
-<h4 id="NSBlockOperation"><a href="#NSBlockOperation" class="headerlink" title="NSBlockOperation"></a>NSBlockOperation</h4><p>NSBlockOperation也是NSOperation的子类，只是跟NSInvocationOperation使用NSInvocation不同，NSBlockOperation使用block，使用起来会更方便。        </p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">myOperationQueue = [[NSOperationQueue alloc] init];	  	   </span><br><span class="line">NSBlockOperation *blockOp = [NSBlockOperation blockOperationWithBlock:^&#123;</span><br><span class="line">       //需要执行的任务</span><br><span class="line">   &#125;];</span><br><span class="line">   </span><br><span class="line">   [blockOp addExecutionBlock:^&#123;</span><br><span class="line">       //需要执行的任务</span><br><span class="line">   &#125;];</span><br><span class="line">   </span><br><span class="line">   // finished属性为YES后(完成或者被取消)将会执行</span><br><span class="line">   __weak NSBlockOperation *weakOp = blockOp;</span><br><span class="line">   [blockOp setCompletionBlock:^&#123;</span><br><span class="line">	</span><br><span class="line">	if (!weakOp.isCancelled) &#123;</span><br><span class="line">	</span><br><span class="line">		[[NSOperationQueue mainQueue] addOperationWithBlock:^&#123;</span><br><span class="line">        	//更新主线程</span><br><span class="line">   	    &#125;];			</span><br><span class="line">	&#125;</span><br><span class="line">   &#125;];</span><br><span class="line"></span><br><span class="line">[myOperationQueue addOperation:blockOp];</span><br></pre></td></tr></table></figure>
-<p>上面代码，block相互之间都是并行异步的。也就是说可以同时执行多个block，不同block之间不会相互阻塞。不用等待依赖其他block完成。block内部是顺序执行的。 </p>
-<p>通过添加依赖，来控制不同的NSBlockOperation之间是否完全并行执行。注意不要循环依赖导致死锁。    </p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">NSBlockOperation *blockOp2 = [NSBlockOperation blockOperationWithBlock:^&#123;</span><br><span class="line">	//需要执行的任务</span><br><span class="line">   &#125;];</span><br><span class="line">   </span><br><span class="line">   //blockOp2 将等待至 blockOp 结束后，开始执行</span><br><span class="line">   [blockOp2 addDependency:blockOp];</span><br><span class="line">[myOperationQueue addOperation:blockOp2];</span><br></pre></td></tr></table></figure>
-<hr>
-<h4 id="子类化自定义NSOperation"><a href="#子类化自定义NSOperation" class="headerlink" title="子类化自定义NSOperation"></a>子类化自定义NSOperation</h4><p>我们可以选择重写 <code>main</code> 方法，或者 <code>start</code> 方法，来实现。</p>
-<ul>
-<li>main：重写main方法，不需要手动管理太多状态，使用起来比较简单。</li>
-</ul>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">- (void)main &#123;</span><br><span class="line">   	@autoreleasepool &#123;</span><br><span class="line"></span><br><span class="line">		//在这里，我们要频繁的检测 isCancelled 属性</span><br><span class="line">		if(self.isCancelled)&#123;</span><br><span class="line">			return;</span><br><span class="line">		&#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<ul>
-<li>start：我们一般不会重写start，相对于重写main方法，处理上要更复杂些。要自己注意任务的一些状态比如isExecuting，isFinished，isConcurrent(isAsynchronous)，isReady。注意，当实现了start，就不会执行main。</li>
-</ul>
-<ul>
-<li>dependency：任务之间添加依赖。有时候某一个任务，需要等待其他任务的结束后才能开始。这时候，相对于使用GCD的dispatch_barrier_async更容易理解一些。</li>
-</ul>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">//在op2的任务尚未执行时，添加依赖，op2将等待直到op完成</span><br><span class="line">[op2 addDependency:op];</span><br><span class="line">//移出op2的依赖</span><br><span class="line">[op2 removeDependency:op];</span><br></pre></td></tr></table></figure>
-<ul>
-<li>Completion block：任务完成后的回调，要注意此时并没有回到主线程。</li>
-</ul>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">__weak NSBlockOperation *weakOp = blockOp;</span><br><span class="line">[blockOp setCompletionBlock:^&#123;</span><br><span class="line">    </span><br><span class="line">    if ( !weakOp.isCancelled ) &#123;</span><br><span class="line">        [[NSOperationQueue mainQueue] addOperationWithBlock:^&#123;</span><br><span class="line"></span><br><span class="line">        &#125;];</span><br><span class="line">    &#125;</span><br><span class="line">&#125;];</span><br></pre></td></tr></table></figure>
-<p>另外有几点需要注意：</p>
-<ul>
-<li><p>已经完成的任务，不能被重新执行。    </p>
-</li>
-<li><p>已经添加到队列的任务，也不能被重复添加。    </p>
-</li>
-<li><p>当我们对一个任务发送<code>cancel</code>消息时，属性isCancelled会变为YES。    不过，对于自定义的NSOperation来说，要格外注意些。</p>
-<p>  在发送cancel消息的时候，如果任务还未开始执行(isExecuting == NO)，就会被 finished 并 从队列中 remove 。</p>
-<p>  如果任务正在执行中，这时候任务不会被强制结束。所以这时候，我们要在main方法中，手动检测(isCancelled == YES)并处理。        </p>
-</li>
-<li>isFinished等于YES，不代表任务成功完成。也可能任务被取消。所以有时候，我们在Completion block回调中，需要判断任务是否被取消。</li>
-</ul>
-<hr>
-<h4 id="NSOperationQueue"><a href="#NSOperationQueue" class="headerlink" title="NSOperationQueue"></a>NSOperationQueue</h4><p>我们有两种不同的队列，主队列和自定义队列。主队列在主线程运行，自定义会开启子线程。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">NSOperationQueue *mainQueue = [NSOperationQueue mainQueue];  </span><br><span class="line">NSOperationQueue *queue = [[NSOperationQueue alloc] init];</span><br></pre></td></tr></table></figure>
-<p>使用NSOperationQueue    的时候，系统默认会根据当前资源使用的情况，来为我们考虑最合适的线程数。当然我们也可以手动设置<code>maxConcurrentOperationCount</code>，限制使用的最大的线程数。更多的时候，其实我们不关心，交给系统处理就好。        </p>
-<ul>
-<li><p>name：一般我们使用队列的时候，都要给一个队列名字，方便我们维护debug。</p>
-</li>
-<li><p>suspended：用来暂停和恢复队列中的所有任务。不能单独针对队列中的某一个任务。</p>
-</li>
-</ul>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">// Suspend</span><br><span class="line">[myOperationQueue setSuspended:YES];</span><br><span class="line">... </span><br><span class="line">// Resume</span><br><span class="line">[myOperationQueue setSuspended:NO];</span><br></pre></td></tr></table></figure>
-<ul>
-<li>operationCount (readonly)：获取队列中还存在的正在执行的、等待执行的任务数量。注意，当任务一旦finished，就会从队列中remove。        </li>
-<li>cancelAllOperations：对队列所有的operations，发送<code>cancel</code>消息，将 isCancelled 属性设置为 YES 。如我们之前讨论过的，当operation 的 isExecuting 状态为 NO 时，operation 会被 finished 并从队列中 remove 。如果 isExecuting 状态为 YES ，那么我们自定义的operation，就要手动检测 isCancelled 属性。</li>
-</ul>
+          NSOperation 是 abstract class 抽象类，不能直接使用，我们使用的时候，一般要子类化，或者直接使用系统提供的两个子类：
 
-          
+NSInvocationOperation
+NSBlo
+          ...
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2015/09/30/2015-09-30-nsoperation/#more" rel="contents">
+              Read more &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
         
       
     </div>
@@ -494,9 +602,9 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">
+          <h2 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/2015/05/24/2015-05-24-kvc-collection-operators-in-oc/" itemprop="url">Objective-c KVC Collection Operators</a></h1>
+                <a class="post-title-link" href="/2015/05/24/2015-05-24-kvc-collection-operators-in-oc/" itemprop="url">Objective-c KVC Collection Operators</a></h2>
         
 
         <div class="post-meta">
@@ -580,52 +688,17 @@
       
         
           
-            <p><a href="https://developer.apple.com/library/mac/documentation/Cocoa/Conceptual/KeyValueCoding/Articles/CollectionOperators.html#//apple_ref/doc/uid/20002176-BAJEAIEE" target="_blank" rel="noopener">KVC的集合运算符</a>是一些特定的，以@符号作为前缀的字符串，可以作为key path参数传入<strong>valueForKeyPath:</strong>方法中，以完成一些特定的便捷操作，如查找最大值，最小值，平均值等等。</p>
-<blockquote>
-<p>集合运算符，除了支持常见的集合NSArray、NSSet、NSDictionary以外，NSPointerArray、NSHashTable、NSMapTable应该也是支持的。</p>
-</blockquote>
-<p>例如，下面是平时我们计算一个数组里Product的price属性的平均值的方法</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">double total = 0.0;</span><br><span class="line">for (Product *product in productsArray) &#123;</span><br><span class="line">  total += [product.price doubleValue];</span><br><span class="line">&#125;</span><br><span class="line">double average = total / [productsArray count];</span><br></pre></td></tr></table></figure>
-<p>使用KVC的集合运算符，可以用一句话来改写</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">NSNumber *priceAverage = [productsArray valueForKeyPath:@&quot;@avg.price&quot;];</span><br></pre></td></tr></table></figure>
-<hr>
-<p>按照苹果的文档，KVC集合运算符被分为下面三类</p>
-<h3 id="1-Simple-Collection-Operators"><a href="#1-Simple-Collection-Operators" class="headerlink" title="1.Simple Collection Operators"></a>1.Simple Collection Operators</h3><p>为集合提供一些便捷运算。返回的是strings, number, 或者 dates。<br>共有5种操作：</p>
-<ul>
-<li><p>@avg : 返回集合中对象某个属性平均值，NSNumber类型</p>
-</li>
-<li><p>@count : 返回集合中对象总数，NSNumber类型</p>
-</li>
-<li><p>@max、@min : 返回集合中对象某个属性最大、小值，实际是调用<strong>compare: </strong>方法比较，类型根据属性而定</p>
-</li>
-<li><p>@sum : 返回集合中对象某个属性之和，每个属性都被转换为double后进行计算，NSNumber类型</p>
-</li>
-</ul>
-<blockquote>
-<p>如果以上集合中的对象不是自定义对象，而是Cocoa提供的类比如NSNumber，我们可以self代替key path，像这样使用：[@[@(1), @(2), @(3)] valueForKeyPath:@”@max.self”]</p>
-</blockquote>
-<hr>
-<h3 id="2-Object-Operators"><a href="#2-Object-Operators" class="headerlink" title="2.Object Operators"></a>2.Object Operators</h3><p>对象操作符是很有用的操作，获取集合中对象某一个属性组成的数组。返回NSArray。</p>
-<ul>
-<li><p>@distinctUnionOfObjects : 返回结果去重。</p>
-</li>
-<li><p>@unionOfObjects : 返会结果不去重。</p>
-</li>
-</ul>
-<p>例如 获取集合下所有Product的name属性的集合</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">NSArray *names = [productsArray valueForKeyPath:@&quot;@unionOfObjects.name&quot;];</span><br><span class="line"></span><br><span class="line">//去重</span><br><span class="line">NSArray *distinctNames = [productsArray valueForKeyPath:@&quot;@distinctUnionOfObjects.name&quot;];</span><br></pre></td></tr></table></figure>
-<hr>
-<h3 id="3-Array-and-Set-Operators"><a href="#3-Array-and-Set-Operators" class="headerlink" title="3.Array and Set Operators"></a>3.Array and Set Operators</h3><p>类似于Object Operators的作用。不过是作用于嵌套集合。从上面的例子来说，就是支持从包含多个productsArray的数组中获取Product的name属性的集合。返回的是一个数组或者集合。</p>
-<ul>
-<li><p>@distinctUnionOfArrays : 去重，返回NSArray</p>
-</li>
-<li><p>@unionOfArrays : 不去重，返回NSArray</p>
-</li>
-<li><p>@distinctUnionOfSets : 去重，返回NSSet。NSSet不能包含重复数据，所以只有这一个方法。</p>
-</li>
-</ul>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">NSArray *distinctNames = [@[productsArray1,productsArray2] valueForKeyPath:@&quot;@distinctUnionOfArrays.name&quot;];</span><br></pre></td></tr></table></figure>
-          
+          KVC的集合运算符是一些特定的，以@符号作为前缀的字符串，可以作为key path参数传入valueForKeyPath:方法中，以完成一些特定的便捷操作，如查找最大值，最小值，平均值等等。
+
+集合运
+          ...
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2015/05/24/2015-05-24-kvc-collection-operators-in-oc/#more" rel="contents">
+              Read more &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
         
       
     </div>
@@ -689,9 +762,9 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">
+          <h2 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/2015/05/19/2015-05-19-simulate-bad-connection/" itemprop="url">Terminal中模拟低速网络</a></h1>
+                <a class="post-title-link" href="/2015/05/19/2015-05-19-simulate-bad-connection/" itemprop="url">Terminal中模拟低速网络</a></h2>
         
 
         <div class="post-meta">
@@ -775,24 +848,16 @@
       
         
           
-            <p>之前一直在终端使用 <code>ipfw</code>脚本命令，来模拟低速网络，不过在Yosemite 之后Apple移除了ipfw 命令，<a href="https://discussions.apple.com/thread/6645172?start=0&amp;tstart=0" target="_blank" rel="noopener">but now  IPFW is gone, Moving to PF</a>。</p>
-<h5 id="GUI工具"><a href="#GUI工具" class="headerlink" title="GUI工具:"></a>GUI工具:</h5><ul>
-<li><p>Charles 这个抓包工具网络上介绍的已经很多了，就不再多说了。</p>
-</li>
-<li><p>使用官方提供的<a href="https://developer.apple.com/downloads/?q=Hardware%20IO%20Tools" target="_blank" rel="noopener"> Network Link Conditioner</a>。</p>
-</li>
-</ul>
-<p>这是IO工具包，下载后，双击“Network Link Conditioner.prefPane” 进行安装。</p>
-<p>启用后，配置一下very bad network，重新启动模拟器，我们就可以使用调整我们的模拟器网络环境了，模拟低速网络。(目前没办法对特定的地址限速，会降低电脑中所有请求的速度)</p>
-<h5 id="Terminal-PF命令："><a href="#Terminal-PF命令：" class="headerlink" title="Terminal PF命令："></a>Terminal PF命令：</h5><p>当然，如果使用终端，还是可以使用 PF命令，来替换 ipfw，下面是一段<a href="https://github.com/MrBoog/Limiting-bandwidth-on-MacOS" target="_blank" rel="noopener">脚本</a></p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">#!/bin/bash</span><br><span class="line"></span><br><span class="line"># Reset dummynet to default config</span><br><span class="line">dnctl -f flush</span><br><span class="line"></span><br><span class="line"># Compose an addendum to the default config: creates a new anchor</span><br><span class="line">(cat /etc/pf.conf &amp;&amp;</span><br><span class="line">echo &apos;dummynet-anchor &quot;my_anchor&quot;&apos; &amp;&amp;</span><br><span class="line">echo &apos;anchor &quot;my_anchor&quot;&apos;) | pfctl -q -f -</span><br><span class="line"></span><br><span class="line"># Configure the new anchor</span><br><span class="line">cat &lt;&lt;EOF | pfctl -q -a my_anchor -f -</span><br><span class="line">no dummynet quick on lo0 all</span><br><span class="line">dummynet out proto tcp from any to any pipe 1</span><br><span class="line">EOF</span><br><span class="line"></span><br><span class="line"># Create the dummynet queue</span><br><span class="line">dnctl pipe 1 config bw 4100byte/s</span><br><span class="line"></span><br><span class="line"># Activate PF</span><br><span class="line">pfctl -E</span><br><span class="line"></span><br><span class="line"># to check that dnctl is properly configured: sudo dnctl list</span><br></pre></td></tr></table></figure>
-<p>检查配置列表</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo dnctl list</span><br></pre></td></tr></table></figure>
-<p>最后的最后。。使用后别忘记重置。。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">sudo dnctl -f flush</span><br><span class="line">sudo pfctl -f /etc/pf.conf</span><br><span class="line">sudo dnctl list</span><br></pre></td></tr></table></figure>
-<p>如果不起作用，可能是PF默认没有开启，使用 <code>sudo pfctl -E</code> 开启。</p>
-
-          
+          之前一直在终端使用 ipfw脚本命令，来模拟低速网络，不过在Yosemite 之后Apple移除了ipfw 命令，but now  IPFW is gone, Moving to PF。
+GUI工具:
+          ...
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2015/05/19/2015-05-19-simulate-bad-connection/#more" rel="contents">
+              Read more &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
         
       
     </div>
@@ -856,9 +921,9 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">
+          <h2 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/2015/05/13/2015-05-13-oc-super/" itemprop="url">Objective-c 'super' keyword</a></h1>
+                <a class="post-title-link" href="/2015/05/13/2015-05-13-oc-super/" itemprop="url">Objective-c 'super' keyword</a></h2>
         
 
         <div class="post-meta">
@@ -942,26 +1007,15 @@
       
         
           
-            <p>我们都知道当使用 self 调用方法时，会从当前类的方法列表中开始找，如果没有，就从父类中再找。当使用 super 时，则从父类的方法列表中开始找，然后调用父类的这个方法。这里 self 代表的是当前调用方法这个类的实例，super 代表父类，但具体是什么，或者是怎么做的呢，我们可以做实验检测一下。</p>
-<p>创建一个Oc的类Dog，直接继承于 NSObject，里面有这样一些方法，</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">- (void)doEat:(NSString *)food&#123;&#125;</span><br><span class="line"></span><br><span class="line">- (instancetype)init</span><br><span class="line">&#123;</span><br><span class="line">    if (self = [super init]) &#123;</span><br><span class="line">        NSLog(@&quot;%@&quot;, [self class]);</span><br><span class="line">        NSLog(@&quot;%@&quot;, [super class]);</span><br><span class="line">        NSLog(@&quot;self %@&quot;,self);</span><br><span class="line">        //NSLog(@&quot;super %@&quot;,super);</span><br><span class="line">    &#125;</span><br><span class="line">    return self;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>在初始化方法里，我们分别输出self和super的类。Dog父类是NSObject，那super输出的会是NSObject么？运行后发现其实二者都是输出Dog。同时，self是一个指针可以看到地址，而当我们把上面注释的那句代码打开，编译器会报一个错误<code>Use of undeclared identifier &#39;super&#39;</code>，可见super跟self不同的是，它不是当前类的一个参数。</p>
-<p>在终端中我们使用<code>clang -rewrite-objc Dog.m</code>，将上面代码转换成C，看到 - doEat:  转成了下面的C函数</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">static void _I_Dog_doEat_(Dog * self, SEL _cmd, NSString *food)&#123;&#125;</span><br></pre></td></tr></table></figure>
-<p>在C的方法中可以看到，这个方法里self是作为第一个参数传入的。这也印证了我们的想法，<code>self 是类的隐藏参数</code>，在转换成c后，每个类的实例方法中都会有这样一个参数。</p>
-<p>初始化中的NSLog方法，转换成C如下</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">NSLog((NSString *)&amp;__NSConstantStringImpl__var_folders__z_yckwz02x3m1c7_8b6mc8zynm0000gn_T_Dog_ae5b20_mi_0, ((Class (*)(id, SEL))(void *)objc_msgSend)((id)self, sel_registerName(&quot;class&quot;)));</span><br><span class="line">NSLog((NSString *)&amp;__NSConstantStringImpl__var_folders__z_yckwz02x3m1c7_8b6mc8zynm0000gn_T_Dog_ae5b20_mi_1, ((Class (*)(__rw_objc_super *, SEL))(void *)objc_msgSendSuper)((__rw_objc_super)&#123;(id)self, (id)class_getSuperclass(objc_getClass(&quot;Dog&quot;))&#125;, sel_registerName(&quot;class&quot;)));</span><br></pre></td></tr></table></figure>
-<p>我们看到 self 和 super 调用方法时，分别使用了如下C函数</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">id objc_msgSend(id self, SEL op, ...)</span><br><span class="line">id objc_msgSendSuper(struct objc_super *super, SEL op, ...)</span><br></pre></td></tr></table></figure>
-<p>所以，其实 super 与 self 不同，<code>不是一个参数，而是一个编译器标识符</code>。由 super 调用的方法，在编译后被转换成 objc_msgSendSuper，其中第一个参数 <a href="https://developer.apple.com/library/mac/documentation/Cocoa/Reference/ObjCRuntimeRef/#//apple_ref/c/tag/objc_super" target="_blank" rel="noopener">结构体 objc_super</a> 也是编译器在遇到 super 关键字的时候，生成的。定义如下</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">struct objc_super &#123; id receiver; Class class; &#125;;</span><br></pre></td></tr></table></figure>
-<p>所以编译器在遇到 super 时，大体做了两件事</p>
-<ul>
-<li>创建 objc_super结构体</li>
-<li>调用 objc_msgSendSuper，向父类方法发送消息。</li>
-</ul>
-
-          
+          我们都知道当使用 self 调用方法时，会从当前类的方法列表中开始找，如果没有，就从父类中再找。当使用 super 时，则从父类的方法列表中开始找，然后调用父类的这个方法。这里 self 代表的是当前
+          ...
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2015/05/13/2015-05-13-oc-super/#more" rel="contents">
+              Read more &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
         
       
     </div>
@@ -1025,9 +1079,9 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">
+          <h2 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/2015/04/07/2015-04-07-makeobjectsperformselector/" itemprop="url">Objective-c '-makeObjectsPerformSelector:'</a></h1>
+                <a class="post-title-link" href="/2015/04/07/2015-04-07-makeobjectsperformselector/" itemprop="url">Objective-c '-makeObjectsPerformSelector:'</a></h2>
         
 
         <div class="post-meta">
@@ -1111,34 +1165,15 @@
       
         
           
-            <h4 id="makeObjectsPerformSelector-方法"><a href="#makeObjectsPerformSelector-方法" class="headerlink" title="-makeObjectsPerformSelector: 方法"></a>-makeObjectsPerformSelector: 方法</h4><p>当我们需要对<strong>NSArray or NSSet</strong>里面的对象，执行同一个操作的时候，我们首先想到的可能是 for 循环。其实对于NSArray 和 NSSet 都有个一简便的方法:</p>
-<p><code>-makeObjectsPerformSelector:</code>，数组里面的元素同时执行某个 selector。<code>-makeObjectsPerformSelector:withObject:</code>可以带一个参数。例如移除某个视图的所有subview，只要一句话：</p>
- <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">[self.subviews makeObjectsPerformSelector:@selector(removeFromSuperview)];</span><br></pre></td></tr></table></figure>
-<p> 既然提到了循环，我们就总结一下，数组中其他几种常用的循环方式：</p>
-<h4 id="for-in"><a href="#for-in" class="headerlink" title="for in"></a>for in</h4><pre><code>for (id obj in array){
-}
-</code></pre><h4 id="Block-Enumeration"><a href="#Block-Enumeration" class="headerlink" title="Block Enumeration"></a>Block Enumeration</h4><pre><code>[array enumerateObjectsUsingBlock: ^(id obj, NSUInteger     idx, BOOL *stop) {
-}];
-//Concurrent:
-[array enumerateObjectsWithOptions:     NSEnumerationConcurrent usingBlock: ^(id obj, NSUInteger idx, BOOL *stop) { 
-}];
-</code></pre><h4 id="GCD"><a href="#GCD" class="headerlink" title="GCD"></a>GCD</h4><p>GCD apply:</p>
-<pre><code>dispatch_queue_t queue = dispatch_get_global_queue(0, 0);
-
-//sync:
-dispatch_apply([array count], queue, ^(size_t idx) {
-    id obj = [array objectAtIndex: idx];
-
-});
-
-//Async:
-dispatch_async(queue, ^(void) {
-    dispatch_apply([array count], queue, ^(size_t idx) {
-        id obj = [array objectAtIndex: idx];
-    });
-});
-</code></pre>
-          
+          -makeObjectsPerformSelector: 方法当我们需要对NSArray or NSSet里面的对象，执行同一个操作的时候，我们首先想到的可能是 for 循环。其实对于NSArray 
+          ...
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2015/04/07/2015-04-07-makeobjectsperformselector/#more" rel="contents">
+              Read more &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
         
       
     </div>
@@ -1202,9 +1237,9 @@ dispatch_async(queue, ^(void) {
 
         
         
-          <h1 class="post-title" itemprop="name headline">
+          <h2 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/2015/02/10/2015-02-10-javascriptcore-2/" itemprop="url">JavaScriptCore Part two</a></h1>
+                <a class="post-title-link" href="/2015/02/10/2015-02-10-javascriptcore-2/" itemprop="url">JavaScriptCore Part two</a></h2>
         
 
         <div class="post-meta">
@@ -1288,19 +1323,16 @@ dispatch_async(queue, ^(void) {
       
         
           
-            <h4 id="当JSExport-遇见-class-addProtocol"><a href="#当JSExport-遇见-class-addProtocol" class="headerlink" title="当JSExport 遇见 class_addProtocol"></a>当JSExport 遇见 class_addProtocol</h4><p>通过上面那篇文章，我们已经大致了解了 JavaScriptCore的基础功能。下面我们想象一个这样的场景：</p>
-<p>如果，我需要在JS中设置某个UIView的backgroundColor，那么我可以总么做呢？我们知道以下两点：</p>
-<ul>
-<li><p>通过创建继承于 JSExport 的协议，可以让Oc暴漏给JS使用。</p>
-</li>
-<li><p>通过 Runtime 的 class_addProtocol，我们可以给已经存在类添加协议。</p>
-</li>
-</ul>
-<p>这样，我们是不是可以给UIView动态添加继承于 JSExport 的协议，协议里包含backgroundColor属性的setter和getter方法。是不是JS中就可以调用了呢？</p>
-<p>代码如下：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">#import &lt;objc/runtime.h&gt;</span><br><span class="line">#import &lt;JavaScriptCore/JavaScriptCore.h&gt;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">@protocol UIViewExport &lt;JSExport&gt;</span><br><span class="line">	- (void)setBackgroundColor:(UIColor *)backgroundColor;</span><br><span class="line">	- (UIColor *)backgroundColor;</span><br><span class="line">@end</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">- (void)viewDidLoad &#123;</span><br><span class="line">	[super viewDidLoad];</span><br><span class="line">	</span><br><span class="line">	class_addProtocol([UIView class], 	@protocol(UIViewExport));</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">    JSContext *context = [[JSContext alloc] init];</span><br><span class="line">   	context[@&quot;view&quot;] = self.view;   </span><br><span class="line">    context[@&quot;color&quot;] = [UIColor blueColor];</span><br><span class="line">   </span><br><span class="line">    [context evaluateScript:@&quot; view.setBackgroundColor(color) &quot;];</span><br><span class="line">   &#125;</span><br></pre></td></tr></table></figure>
-
-          
+          当JSExport 遇见 class_addProtocol通过上面那篇文章，我们已经大致了解了 JavaScriptCore的基础功能。下面我们想象一个这样的场景：
+如果，我需要在JS中设置某个UI
+          ...
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2015/02/10/2015-02-10-javascriptcore-2/#more" rel="contents">
+              Read more &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
         
       
     </div>
@@ -1364,9 +1396,9 @@ dispatch_async(queue, ^(void) {
 
         
         
-          <h1 class="post-title" itemprop="name headline">
+          <h2 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/2015/01/17/2015-01-17-javascriptcore-1/" itemprop="url">JavaScriptCore Part one</a></h1>
+                <a class="post-title-link" href="/2015/01/17/2015-01-17-javascriptcore-1/" itemprop="url">JavaScriptCore Part one</a></h2>
         
 
         <div class="post-meta">
@@ -1450,404 +1482,15 @@ dispatch_async(queue, ^(void) {
       
         
           
-            <p>随着iOS7 JavaScript引擎的开放，JS在移动端使用场景越来越多。之前，要想在Oc中调用Js，不可避免要使用webview，JavaScriptCore是可以不依托于webview的。比如当下比较火的 ReactNative、JSPatch 都有应用这个库。大部分时候我们可能不需要手写Oc和JS的交互处理，但至少也应该可以看得懂，这样也方便我们理解一些Hybrid开源框架。</p>
-<p>JavaScriptCore框架中，两个比较重要的类：</p>
-<ul>
-<li><p>JSContext 作用域，一段JS的执行环境。</p>
-</li>
-<li><p>JSValue JS是弱类型语言(即变量的类型是不确定的,Oc、Swift都是强类型)，JSValue用来处理这种差异，对象转化。</p>
-</li>
-</ul>
-<h5 id="Oc-to-JS"><a href="#Oc-to-JS" class="headerlink" title="Oc to JS"></a>Oc to JS</h5><p>在Oc内部，通过JSContext类，直接调用一段JS，返回值包裹在JSValue类型中。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">JSContext *context = [[]JSContext alloc] init];</span><br><span class="line">// 获取错误信息 便于调试	</span><br><span class="line">context.exceptionHandler = ^(JSContext *context,JSValue *exception)&#123;</span><br><span class="line">	NSLog(@&quot;Error is : %@&quot;,exception);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">// 执行JS</span><br><span class="line">[context evaluateScript:@&quot;var num = 2 * 8&quot;];</span><br><span class="line">[context evaluateScript:@&quot;var colors = [&apos;black&apos;,&apos;blue&apos;,&apos;green&apos;,&apos;red&apos;]&quot;];</span><br><span class="line">[context evaluateScript:@&quot;var triple = function(value) &#123; return value * 3 &#125; &quot;];</span><br><span class="line"></span><br><span class="line">// 获取Context中创建的变量的值，包裹在JSValue中</span><br><span class="line">JSValue *num = [context objectForKeyedSubscript:@&quot;num&quot;];</span><br><span class="line">JSValue *colors = [context objectForKeyedSubscript:@&quot;colors&quot;];</span><br><span class="line">JSValue *colorName = [colors objectAtIndexedSubscript:1];</span><br><span class="line"></span><br><span class="line">// 调用JS函数，</span><br><span class="line">JSValue *function = [context objectForKeyedSubscript:@&quot;triple&quot;];</span><br><span class="line">JSValue *result = [function callWithArguments:@[@16]];</span><br></pre></td></tr></table></figure>
-<h5 id="JS-to-Oc"><a href="#JS-to-Oc" class="headerlink" title="JS to Oc"></a>JS to Oc</h5><p>context可设置block，JS通过调用block，来实现JS调用Oc。在使用中值得注意的是内存管理，要避免循环引用。如果在block，还需要调用JS，应使用[JSContext currentContext]取得上下文，不应该直接使用外部的context或者value。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">context[&quot;callback&quot;]	 = ^(NSArray *colorArray)&#123;</span><br><span class="line">	NSLog(@&quot;callback : %@&quot;,colorArray);</span><br><span class="line">&#125;</span><br><span class="line">[context evaluateScript:@&quot; callback( [\&quot;black\&quot;,\&quot;blue\&quot;,\&quot;green\&quot;] ) &quot;];</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">// 下面情况，注意避免循环引用</span><br><span class="line">[context evaluateScript:@&quot;var colorsCount = function(value) &#123; return value.length &#125;&quot;];</span><br><span class="line"></span><br><span class="line">   context[@&quot;callbackAgain&quot;] = ^(NSArray *colorArray)&#123;</span><br><span class="line">       </span><br><span class="line">       JSContext *curContext = [JSContext currentContext];</span><br><span class="line">       JSValue *colorsCount = [curContext evaluateScript:@&quot;colorsCount&quot;];</span><br><span class="line">       JSValue *count = [colorsCount callWithArguments:@[colorArray]];</span><br><span class="line">       NSLog(@&quot;%@&quot;,count);</span><br><span class="line">   &#125;;</span><br><span class="line">   [context evaluateScript:@&quot;callbackAgain( [\&quot;black\&quot;,\&quot;red\&quot;] )&quot;];</span><br></pre></td></tr></table></figure>
-<p>上述方法，传值都是限于 Foundation 类型。那JS种是否可以使用Oc的类的？这就要用到 JSExport 协议了。</p>
-<h5 id="使用-JSExport-协议"><a href="#使用-JSExport-协议" class="headerlink" title="使用 JSExport 协议"></a>使用 JSExport 协议</h5><p>创建一个CustomObject类，继承 ExportProtocol 协议</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">@protocol ExportProtocol &lt;JSExport&gt;</span><br><span class="line">- (void)log:(NSString *)string;</span><br><span class="line">@end</span><br><span class="line"></span><br><span class="line">@interface CustomObject : NSObject &lt;ExportProtocol&gt;</span><br><span class="line">@end</span><br><span class="line"></span><br><span class="line">@implementation CustomObject</span><br><span class="line">- (void)log:(NSString *)string&#123;</span><br><span class="line">	NSLog(@&quot; js : %@&quot;,string);</span><br><span class="line">&#125;</span><br><span class="line">@end</span><br></pre></td></tr></table></figure>
-<p>上面我们创建了一个可以给JS使用的Oc类，具体调用类似JS调用block，代码如下</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">context[@&quot;customObject&quot;] = [[CustomObject alloc] init];</span><br><span class="line"></span><br><span class="line">[context evaluateScript:@&quot; customObject.log(\&quot;Hello world\&quot;) &quot;];</span><br></pre></td></tr></table></figure>
-<p>这样，通过继承JSExport协议，我们就可以在JS中，调用Oc类的方法了。</p>
-
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2015/01/17/2017-12-10-guns-notes/">
-
-    <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Huan Liu">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/thumbnail.JPG">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="MrBoog Zone">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2015/01/17/2017-12-10-guns-notes/" itemprop="url">Hello World</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">Posted on</span>
-              
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2015-01-17T00:00:00+08:00">
-                2015-01-17
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category">
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">In</span>
-              
-              
-                <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing">
-                  <a href="/categories/Reading/" itemprop="url" rel="index">
-                    <span itemprop="name">Reading</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-              <span class="post-comments-count">
-                <span class="post-meta-divider">|</span>
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-comment-o"></i>
-                </span>
-                <a href="/2015/01/17/2017-12-10-guns-notes/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2015/01/17/2017-12-10-guns-notes/" itemprop="commentCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <h3 id="枪炮、病菌与钢铁-笔记-Guns-Germs-and-Steel"><a href="#枪炮、病菌与钢铁-笔记-Guns-Germs-and-Steel" class="headerlink" title="枪炮、病菌与钢铁 笔记 (Guns Germs and Steel)"></a>枪炮、病菌与钢铁 笔记 (Guns Germs and Steel)</h3><p>关于作者</p>
-<p>1997 贾德.戴蒙 </p>
-<p>本书说的是作者的观点，或者说作者对世界的认识，不是真理。</p>
-<p>本书写作目的，主要是回答作者自己对这个世界的好奇：</p>
-<p>为什么是欧洲人征服了美洲，是人种在生物学上的差异吗？</p>
-<p>达尔文思想的进化与演化(最低级的细菌，仍然是细菌)，关于种族主义。</p>
-<p>狩猎采集社会中部落所需要掌握的知识，尤其是生存技能，其实很复杂。</p>
-<h4 id="年代测量-C-14"><a href="#年代测量-C-14" class="headerlink" title="年代测量 C-14"></a>年代测量 C-14</h4><p><strong>碳-14年代测定法</strong>：大气中的碳-14，伴随二氧化碳进入碳循环（植物光合-动物），生物死亡后碳-14开始衰变为碳-12，根据半衰期以及衰变剩下的碳-14与碳-12的比例来估测时间。<strong>技术问题</strong>：骨头里的碳含量可能太少，往往需要找遗址周围的木头，但是这就会有误差了因为木头可能是后来混进来的。</p>
-<p>现代多用<strong>加速器质朴分析法</strong>，也是测量碳-14和同位素含量的比值。但比根据衰变更准确，所需要的碳更少。骨头的碳含量足够使用。</p>
-<h4 id="一些背景-时间地点等"><a href="#一些背景-时间地点等" class="headerlink" title="一些背景 时间地点等"></a>一些背景 时间地点等</h4><hr>
-<h4 id="地点"><a href="#地点" class="headerlink" title="地点"></a>地点</h4><ul>
-<li><p>欧亚大陆：欧洲，新月沃地，中国。地球唯一横向大陆。</p>
-<p>其中欧洲后来者居上。从公元前8500年开始，直到公元500年后希腊与意大利的先后兴起这一段时间里，欧亚大陆西部几乎所有的重大发明——动物驯化、植物驯化、文学、冶金术、轮子、国家等等——都是在新月沃地或其附近出现的。甚至从公元1000年到1450年，科学和技术绝大多数都是从印度与北非之间的伊斯兰社会传入欧洲，而不是相反。就在那几个世纪中，中国在技术上走在世界的前列，几乎和新月沃地一样早地开始了粮食生产。</p>
-</li>
-<li><p>非洲： 。撒哈拉沙漠把撒哈拉以南地区与北非和欧亚大陆隔开。</p>
-</li>
-<li><p>澳洲，新几内亚， 新西兰：降雨少，物产匮乏，没有出现粮食生产。</p>
-</li>
-<li><p>新大陆 美洲：第二大的大陆块，在地理和生态上对比于欧亚大陆显得支离破碎。巴拿马狭窄的地峡，成为南北美鲜明的分界。墨西哥北部沙漠把中美洲文明同北美社会分开。巴拿马则把中美洲文明同安第斯山脉地区和亚马逊地区社会分开。</p>
-</li>
-</ul>
-<p><img src="http://mrboog.github.io/images/Guns/guns_worldmap.jpg" alt="http://mrboog.github.io/images/Guns/guns_worldmap.jpg"></p>
-<p>主轴线：</p>
-<p><img src="http://mrboog.github.io/images/Guns/guns_IMG_9948.JPG" alt=""></p>
-<h4 id="时间"><a href="#时间" class="headerlink" title="时间:"></a>时间:</h4><p><strong>史前人类的扩张:</strong></p>
-<ol>
-<li><p>700万年前（500万 - 900万）</p>
-<p>非洲猿演化成几种种群，包括现在的人类。其他包括3种类人猿，也都只生活在非洲，大猩猩、普通黑猩猩、矮脚黑猩猩。</p>
-</li>
-<li><p>400万年前 </p>
-<p>开始直立行走。</p>
-</li>
-<li><p>250万年前</p>
-<p>脑容量慢慢增大，身体长高。可以使用石器。</p>
-</li>
-<li><p>170万年前</p>
-<p>直立人慢慢演化到不再是猿，但也不是现代人。</p>
-<p><img src="http://mrboog.github.io/images/Guns/guns_IMG_9937.JPG" alt=""></p>
-<p>​</p>
-<ol start="5">
-<li><p>3万年前</p>
-<p>人类第一次大规模灭绝大型动物。人类4万年前登陆澳洲不久，大型动物灭绝。</p>
-<p>猜测：大型动物没有时间演化对于人类应该有的恐惧，突然遭遇狩猎技巧很高的人类。</p>
-<p>这些大型动物消失其实对当地人类的发展有很大影响。澳洲没有一种可以驯化的大型动物。</p>
-</li>
-<li><p>1.2万年前</p>
-<p>人类从西伯利亚通过白令海峡（也可能是白令陆桥）进入美洲阿拉斯加。科学界统一的看法：美洲是人类史最短的大陆。</p>
-<p>同样，大型动物很快再次灭绝。美洲同样没有可以驯化的大型动物。</p>
-</li>
-<li><p>很多孤立的小岛，其实在现代才有人登陆。如</p>
-<ul>
-<li>公元前4000年，加勒比海岛。</li>
-<li>公元300-800年，马达加斯加岛。</li>
-<li>公元9世纪，冰岛，等等很多例子。</li>
-</ul>
-</li>
-</ol>
-<p>总之，考古学的发现证明，非洲占据着领先优势。</p>
-</li>
-</ol>
-<p><strong>人类两次飞跃时间</strong>:</p>
-<ol>
-<li>10万年前-5万年前，人体现代解剖学意义上的进化，使人类有现代的大脑可以掌握语言描述虚拟事物。认知革命。出发原因、地点说法不一。但科学界大部分认为发生在非洲。</li>
-<li>最早1万3千年左右，狩猎采集走向定居。人类开始<strong>积累不便于携带的财产，可以养活不从事粮食生产的专门人员。</strong>农业革命。</li>
-</ol>
-<p><strong>关于发现美洲</strong></p>
-<p>公元前1.2万年左右，上一次冰期结束后。</p>
-<ul>
-<li>人类第一次登陆美洲。大约一万年前，东亚后裔从白令海峡登陆美洲。</li>
-</ul>
-<ul>
-<li>哥伦布，明朝中期，1492年，‘发现’ 新大陆。新旧大陆碰撞开始。</li>
-</ul>
-<p>小故事：1532年，皮萨洛率领168西班牙士兵（装备有马匹盔甲枪炮），未损失一兵一卒，征服了有百万人民十万军队的<strong>印加帝国</strong>，杀了皇帝。</p>
-<p>哥伦布航海线路图：</p>
-<p><img src="http://mrboog.github.io/images/Guns/guns_timg.jpg" alt=""></p>
-<h5 id="1492年，从粮食生产、病菌、文字、科技、政治组织几个方面，主要对比欧亚和美洲："><a href="#1492年，从粮食生产、病菌、文字、科技、政治组织几个方面，主要对比欧亚和美洲：" class="headerlink" title="1492年，从粮食生产、病菌、文字、科技、政治组织几个方面，主要对比欧亚和美洲："></a>1492年，从粮食生产、病菌、文字、科技、政治组织几个方面，主要对比欧亚和美洲：</h5><table>
-<thead>
-<tr>
-<th>1492</th>
-<th>欧亚大陆</th>
-<th>美洲</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>驯化动物</td>
-<td>13种大型哺乳动物，作为食物，运输，战争等</td>
-<td>羊驼(安第斯山脉附近) 用来运输货物, 当然也有小型的哺乳动物，比如狗、火鸡、鸭、猫、蜜蜂等等</td>
-</tr>
-<tr>
-<td>驯化植物</td>
-<td>欧亚植物驯化也很普遍，种类丰富</td>
-<td>美洲很多地方都缺少可以驯化的植物。依赖蛋白含量低的玉米。没有动物犁地，只有人类自己。</td>
-</tr>
-<tr>
-<td>病菌</td>
-<td>由于驯化的动物较多，有很多病菌，也相应产生很多抗体</td>
-<td>家畜和病菌都很少。人类开始定居，村庄出现的时间也比欧亚晚几千年</td>
-</tr>
-<tr>
-<td>制作工具、技术</td>
-<td>制作工具为金属，铜，青铜，铁。军队有马，枪炮。动力，利用动物，水力风力。轮子运输。航海技术。</td>
-<td>制作工具为石器、木头</td>
-</tr>
-<tr>
-<td>文字</td>
-<td>欧亚大陆有多种文字</td>
-<td>中美洲很小的地区有上层人使用。印加帝国使用结绳的方式作为记录，还起不到文字的作用</td>
-</tr>
-<tr>
-<td>政治</td>
-<td>政治组织丰富。也有很多国家之间的竞争碰撞</td>
-<td>三大文明，玛雅，阿兹特克，印加帝国。行政力量可以兴建公共工程，进行战争等</td>
-</tr>
-</tbody>
-</table>
-<p>其他地区：撒哈拉以南非洲，有一些使用铁器的小国。澳大利亚、新几内亚、新西兰，多数仍然是狩猎采集部落。</p>
-<hr>
-<h4 id="农业（粮食生产，不同时间出现在不同大陆）"><a href="#农业（粮食生产，不同时间出现在不同大陆）" class="headerlink" title="农业（粮食生产，不同时间出现在不同大陆）"></a>农业（粮食生产，不同时间出现在不同大陆）</h4><p>独立驯化植物地点：</p>
-<p><img src="http://mrboog.github.io/images/Guns/guns_IMG_9947.JPG" alt=""></p>
-<p>驯化年代表：</p>
-<p><img src="http://mrboog.github.io/images/Guns/guns_IMG_9930.JPG" alt=""></p>
-<p>驯化的物种：</p>
-<p>如下表所见，很多地区缺乏蛋白质，这也会对人类发展有所影响。(新几内亚高原和新西兰毛利人吃人肉，也可能是缺乏蛋白质)</p>
-<p><img src="http://mrboog.github.io/images/Guns/guns_IMG_9946.JPG" alt=""></p>
-<p>粮食生产其实是<strong>副产品</strong>，也就是说人类不是有意识的决定要定居生产粮食的。这和地理以及当地的生态环境、物种同样有很大关系，人类往往是被这些因素牵着鼻子走。</p>
-<p>但这是一个正反馈，一旦开始，速度将越来越快。</p>
-<p>（可以阅读 &lt;文明是副产品&gt; 郑也夫）</p>
-<hr>
-<h4 id="病菌：驯化动物带来的礼物"><a href="#病菌：驯化动物带来的礼物" class="headerlink" title="病菌：驯化动物带来的礼物"></a>病菌：驯化动物带来的礼物</h4><p>过去战争的胜利者，往往是那些携带有可以传染给敌军的可怕病菌的军队。</p>
-<ul>
-<li><p>病菌从何而来？大部分是由于驯化动物带来的，并随着人类开始定居聚集加速发展。</p>
-</li>
-<li><p>印第安人其实大部分死于欧洲人带来的病菌。(天花、破伤风、伤寒、白喉、流感、肺炎、百日咳、痢疾、麻疹等等)</p>
-<p>事实上，被欧亚大陆病菌冲击的不止印第安人。太平洋诸岛，澳大利亚土著，非洲南部的科伊桑民族。</p>
-<p>对于从来没有接触过欧亚大陆的病菌的民族来说，这些病菌的死亡率可以达到50%-100%。</p>
-</li>
-<li><p>相对于美洲，亚欧大陆可供驯化的动物更多，这就导致病菌更多。这就是为什么美洲的印第安人会受到更大的冲击。</p>
-</li>
-<li><p>病菌同样也阻止过欧洲的脚步。热带亚洲、非洲、印度尼西亚、新几内亚的霍乱、黄热病热带疾病，是欧洲人在热带殖民的最大障碍。</p>
-<p>欧洲人瓜分完新大陆400年后才完成对非洲，新几内亚的殖民。</p>
-</li>
-</ul>
-<hr>
-<h4 id="文字"><a href="#文字" class="headerlink" title="文字"></a>文字</h4><h5 id="发明文字很难，以及文字的传播影响，使得纯粹的独立发明很少，两个例子："><a href="#发明文字很难，以及文字的传播影响，使得纯粹的独立发明很少，两个例子：" class="headerlink" title="发明文字很难，以及文字的传播影响，使得纯粹的独立发明很少，两个例子："></a>发明文字很难，以及文字的传播影响，使得纯粹的独立发明很少，两个例子：</h5><ol>
-<li>最古老的书写系统：苏美尔人，美索不达米亚，新月沃地，(中东 阿拉伯 犹太)。公元前3200年。</li>
-<li>中美洲印第安社会（墨西哥），玛雅。</li>
-<li>中国，有些争议，大部分认为是独立发明。</li>
-<li>埃及，有争议，可能受到苏美尔人语言的传播启发。</li>
-</ol>
-<h5 id="关于文字传播，两种方式："><a href="#关于文字传播，两种方式：" class="headerlink" title="关于文字传播，两种方式："></a>关于文字传播，两种方式：</h5><ol>
-<li>蓝图复制：对现有的详细蓝图进行复制和修改。<strong>拉丁字母(罗马字母): 人类历史上字母只产生过一次</strong>(Israel到西奈半岛地区)，其他全部是蓝图复制。</li>
-<li>思想传播：只把思想接受，重新创造细节。朝鲜语受中国象形文字影响。</li>
-</ol>
-<h5 id="为什么有的民族没有产生文字，比如印加帝国"><a href="#为什么有的民族没有产生文字，比如印加帝国" class="headerlink" title="为什么有的民族没有产生文字，比如印加帝国"></a>为什么有的民族没有产生文字，比如印加帝国</h5><p>文字产生初期很不完整，不明确，难懂。主要目的用来宫廷记账。只有专职人员掌握。</p>
-<p>所有文字单独产生的地区，都有集中统一的社会等级分明的政治结构。</p>
-<p>狩猎采集社会没有发明出文字。</p>
-<p>农业社会，或者说粮食生产和采集粮食，对病菌的演化和文字的演化都是必不可少的。</p>
-<p>为什么有的民族没有产生文字。比如印加帝国。</p>
-<ol>
-<li>独立创造文字很困难，少之又少。</li>
-<li>地理原因，蓝图复制和思想传播都很难到达印加帝国。</li>
-</ol>
-<p>再一次，非洲和美洲的南北轴线，使得文字的传播受阻。</p>
-<hr>
-<h4 id="科技发明"><a href="#科技发明" class="headerlink" title="科技发明"></a>科技发明</h4><h5 id="为什么大多数的发明创造发生在欧亚大陆？新几内亚和澳大利亚铜铁矿丰富，但在1800年还在使用石器？（本书中心问题，为什么不同大陆上技术以不同的速度演进）"><a href="#为什么大多数的发明创造发生在欧亚大陆？新几内亚和澳大利亚铜铁矿丰富，但在1800年还在使用石器？（本书中心问题，为什么不同大陆上技术以不同的速度演进）" class="headerlink" title="为什么大多数的发明创造发生在欧亚大陆？新几内亚和澳大利亚铜铁矿丰富，但在1800年还在使用石器？（本书中心问题，为什么不同大陆上技术以不同的速度演进）"></a>为什么大多数的发明创造发生在欧亚大陆？新几内亚和澳大利亚铜铁矿丰富，但在1800年还在使用石器？（本书中心问题，为什么不同大陆上技术以不同的速度演进）</h5><p>欧亚人的智力创造性更高？客观存在的需求是发明之母么？例如：1942二站时期，美国曼哈顿计划制造原子弹。社会对新事物的接受性问题？有些社会表现的保守、内向、敌视变革。主观上的创新意愿。</p>
-<p>作者观点：</p>
-<ol>
-<li>人类神经生物学方面并没有发现欧亚人智力更高。</li>
-<li>多数时候先有发明才有需求。所以大多数的时候，<strong>发明是需求之母</strong>。</li>
-</ol>
-<p>例如：1877，爱迪生发明留声机。几年后，他对助手说这项发明没有任何商业作用。20年后，他才承认这项发明主要是用来录制音乐。1866，奥托发明燃气发动机，1896他制造了卡车，直到一战军方才认为卡车比马匹重要。1796，瓦特改良蒸汽机解决从英国煤矿里抽水，但很快应用到为工厂提供动力。</p>
-<p>古人的发明方法也是类似。通过某个事物一点一点的实验和尝试，猜测其具体可以产生的用途。狩猎采集部落的人知道周围几十种石头的硬度，以及各种用途。都是通过观察和反复实验获得的。对自然材料，如石头、木头、头骨、兽皮、黏土、纤维、沙子、矿物、灰岩等等，反复实验。当有人发现火药的时候，就要考虑有什么应用了。</p>
-<ol start="3">
-<li><p>所有的发明创造都要站在前人的肩膀上，并不单单是个人的成就。每个发明家都需要前人的知识。<strong>技术发展是长期累积的，不是孤立的个人行为。</strong></p>
-</li>
-<li><p>社会对发明的接受力：</p>
-<ol>
-<li>为何会接受新技术</li>
-</ol>
-<ul>
-<li><p>有无直接经济利益，或者优点很显著。</p>
-<p>古代墨西哥土著虽然也发明了轮子，但却用来当玩具而非大范围推广为运输工具。（虽然不可思议，但那是因为没有牲口可以帮助拉货。）。美洲大陆唯一驯化了神兽羊驼，二者从来没见过面，没有擦出火花。</p>
-</li>
-<li><p>是否符合既得利益</p>
-<p>英国一些市政府对燃气照明进行大量投资，所以英国城市在1920左右仍然使用煤气为街道照明，美国德国早就开始使用电灯了。</p>
-</li>
-</ul>
-<ol start="2">
-<li><p>不同社会的创造力差异，一些争论和可能的因素：</p>
-<p>气候：有人认为气候条件严峻的地方，技术能够繁荣发展。也有人说，有利的环境使人们不用为生存斗争，有有时间从事创新。</p>
-<p>战争：战争促进技术进步。一战飞机卡车，二站核武器。但战争带来的破坏力也会阻碍发展。</p>
-<p>强政府：中央集权，19世纪在德国日本都有推动作用，但16世纪开始中国对技术起了抑制作用，我们错过了大航海时代，工业革命等等。</p>
-<p>人寿命延长：发明家有更多时间学习知识，制定长期计划。</p>
-<p>廉价的劳动力：奴隶社会阻碍发明创造。在高工资劳动力稀缺时代，更需要技术创新。</p>
-<p>资本主义：投资技术，收获回报。</p>
-<p>私有产权保护：发明者有财产奖励。</p>
-<p>个人主义：发明者为自己赚钱，而不是整个家族。</p>
-<p>工业社会：技术培训等等。</p>
-</li>
-</ol>
-<p>创新随机：事实上，任何大陆在任何时期都有适应力和接受力强的人群，也有保守的人群。无论非洲，新几内亚、澳大利亚，还是美洲。同一个社会，在不同时间内的接受力也可能是不一样的。在中世纪，技术大多是从阿拉伯流向欧洲。当时的中国甚至比阿拉伯伊斯兰世界更先进，可后来二者都被欧洲超越。同一项技术也可能被废弃，又被启用。日本曾经改良枪支，但由于武士阶层以刀为艺术品政府逐渐减少枪支，直到1853美国海军打开日本大门。</p>
-<p>新技术发明需要积少成多，新技术的创造往往需要大量的<strong>已知技术作为支持。</strong></p>
-<p>类似于文字，复杂的发明通常只被独立发明一次，<strong>传播速度远远超过发明速度</strong>，地理和生态的障碍，可能是技术最大的阻碍。</p>
-<p>这种传播包括<strong>正常的技术吸收，也包括被征服取代或同化。</strong> 比如1818年新西兰一个毛利人部落从欧洲商人手里买来火枪，到1833年，所有幸存的毛利部落都已经有了火枪。中国的造纸术传到伊斯兰世界，由于751年阿拉伯军队打败了唐朝军队，俘获了造纸工匠。中国瓷器从丝绸之路来到欧洲后，几百年后欧洲才学会独立制造。</p>
-</li>
-<li><p>粮食生产开始时间，技术传播的障碍，人口多寡。</p>
-<p>技术发展最快的往往是那些人口众多，有许多潜在发明家，和有许多相互竞争的，资源丰富的社会。</p>
-<p>欧亚大陆的优势：世界上最大的大陆，有数量众多的相互竞争的社会。也是最早开始有粮食生产的大陆，其中两个中心就是新月沃地和中国。东西的主轴线，相同的纬度差异不大的气候，使得欧亚大陆的技术易于传播。而对于南北轴线的典型，美洲大陆，地理和生态的障碍，积少成多。</p>
-</li>
-</ol>
-<hr>
-<h4 id="小结"><a href="#小结" class="headerlink" title="小结"></a>小结</h4><ol>
-<li>各大陆在可以用作驯化其实物种的野生动植物品种反面存在差异。</li>
-<li>各个大陆内部传播和迁移的速度。大陆主轴线，生态与地理障碍。</li>
-<li>大陆与大陆之间的传播难易程度也不同。非洲很多牲畜其实都是欧亚大陆传播过去的。美洲则更加孤立。</li>
-<li>大陆面积和人口总数。欧亚大陆有更多的相互竞争的社会，更多的潜在发明者。</li>
-</ol>
-<h4 id="其他"><a href="#其他" class="headerlink" title="其他"></a>其他</h4><ul>
-<li>中央集权的政治组织、宗教的产生。进贡的产生（税收）。人口多少的影响。亚里士多德，卢梭，马克思等等。</li>
-<li>粮食生产和社会之间的竞争(战争、战争威胁)，产生了征服的动力：病菌、文字、技术、中央集权的政治组织。</li>
-<li>中国，最早的粮食生产地之一(以及新月沃地)。古代中国非凡成就。</li>
-<li>中国对东南亚，朝鲜日本的影响。</li>
-<li>为什么是欧洲不是中国？</li>
-<li>为什么中国长期统一，欧洲长期分裂？公元前221年，秦虽然只有15年寿命，但却统一文字度量衡。而欧洲今天仍未统一。</li>
-</ul>
-
-          
+          随着iOS7 JavaScript引擎的开放，JS在移动端使用场景越来越多。之前，要想在Oc中调用Js，不可避免要使用webview，JavaScriptCore是可以不依托于webview的。比如当
+          ...
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2015/01/17/2015-01-17-javascriptcore-1/#more" rel="contents">
+              Read more &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
         
       
     </div>
@@ -1911,9 +1554,9 @@ dispatch_async(queue, ^(void) {
 
         
         
-          <h1 class="post-title" itemprop="name headline">
+          <h2 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/2014/10/18/2014-10-18-xcode6-live-view-debugger/" itemprop="url">Xcode 6 live view debugger</a></h1>
+                <a class="post-title-link" href="/2014/10/18/2014-10-18-xcode6-live-view-debugger/" itemprop="url">Xcode 6 live view debugger</a></h2>
         
 
         <div class="post-meta">
@@ -1997,13 +1640,16 @@ dispatch_async(queue, ^(void) {
       
         
           
-            <p>之前查看视图层级，一直使用reveal。每次新的工程要想使用reveal，都要引入它的framework，用起来还是挺麻烦的。</p>
-<p>这次Xcode 6带来了自己的 live view debugger，支持iOS8模拟器。除非想做逆向相关的处理，查看其它app的层级。不然debug自己项目的话，已经够用了。</p>
-<p>Open your Xcode, just select <code>Debug\View  Debugging\Capture View Hierarchy</code></p>
-<p>当然相比于Reveal缺点也有，比如不支持iOS7，比如抓取视图的时候模拟器不能继续其他操作等等。</p>
-<p>想了解更多的同学可以读下raywender上的这篇<a href="http://www.raywenderlich.com/98356/view-debugging-in-xcode-6" target="_blank" rel="noopener">文章</a>。</p>
-
-          
+          之前查看视图层级，一直使用reveal。每次新的工程要想使用reveal，都要引入它的framework，用起来还是挺麻烦的。
+这次Xcode 6带来了自己的 live view debugger，支
+          ...
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2014/10/18/2014-10-18-xcode6-live-view-debugger/#more" rel="contents">
+              Read more &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
         
       
     </div>
@@ -2067,9 +1713,9 @@ dispatch_async(queue, ^(void) {
 
         
         
-          <h1 class="post-title" itemprop="name headline">
+          <h2 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/2014/06/09/2014-06-09-random-in-ios/" itemprop="url">Objective-c Random</a></h1>
+                <a class="post-title-link" href="/2014/06/09/2014-06-09-random-in-ios/" itemprop="url">Objective-c Random</a></h2>
         
 
         <div class="post-meta">
@@ -2153,19 +1799,17 @@ dispatch_async(queue, ^(void) {
       
         
           
-            <p>生成随机数<br>arc4random(void)//不够平衡<br>推荐<br>arc4random_uniform(u_int32_t)    </p>
-<p>生成 [0 , n )，之间的随机数：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">NSUInteger foo = arc4random_uniform(n);</span><br></pre></td></tr></table></figure>
-<p>生成 [minimum , maximum]，之间的随机数：    </p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">NSUInteger foo = arc4random_uniform((maximum - minimum) + 1) + minimum;</span><br></pre></td></tr></table></figure>
-<p>除整数之外，产生(0 , 1)，之前的随机数：        </p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">//先种随机种子</span><br><span class="line">srand48(time(0));</span><br><span class="line">double foo = drand48();</span><br></pre></td></tr></table></figure>
-<p>延伸一下，随机取数组中的元素：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">//arc4random_uniform(n) 随机范围是[0，n），可直接用于数组下标</span><br><span class="line">if ([array count] &gt; 0) &#123;</span><br><span class="line">  id obj = array[arc4random_uniform([array count])];</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>没有使用NSSet，却想打乱顺序：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">NSMutableArray *mutableArray = [NSMutableArray arrayWithArray:array];</span><br><span class="line">NSUInteger count = [mutableArray count];</span><br><span class="line">// See http://en.wikipedia.org/wiki/Fisher–Yates_shuffle</span><br><span class="line">if (count &gt; 1) &#123;</span><br><span class="line">  for (NSUInteger i = count - 1; i &gt; 0; --i) &#123;</span><br><span class="line">      [mutableArray exchangeObjectAtIndex:i withObjectAtIndex:arc4random_uniform((int32_t)(i + 1))];</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">NSArray *randomArray = [NSArray arrayWithArray:mutableArray];</span><br></pre></td></tr></table></figure>
-
-          
+          生成随机数arc4random(void)//不够平衡推荐arc4random_uniform(u_int32_t)    
+生成 [0 , n )，之间的随机数：
+1NSUInteger foo =
+          ...
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2014/06/09/2014-06-09-random-in-ios/#more" rel="contents">
+              Read more &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
         
       
     </div>
@@ -2264,7 +1908,7 @@ dispatch_async(queue, ^(void) {
               
               <div class="site-state-item site-state-categories">
                 <a href="/categories/index.html">
-                  <span class="site-state-item-count">3</span>
+                  <span class="site-state-item-count">2</span>
                   <span class="site-state-item-name">categories</span>
                 </a>
               </div>

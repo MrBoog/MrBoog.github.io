@@ -86,18 +86,18 @@
 
 
 
-<meta name="description" content="我们都知道当使用 self 调用方法时，会从当前类的方法列表中开始找，如果没有，就从父类中再找。当使用 super 时，则从父类的方法列表中开始找，然后调用父类的这个方法。这里 self 代表的是当前调用方法这个类的实例，super 代表父类，但具体是什么，或者是怎么做的呢，我们可以做实验检测一下。 创建一个Oc的类Dog，直接继承于 NSObject，里面有这样一些方法， 12345678910">
+<meta name="description" content="NSNotificationCenter 我们肯定都有使用过，通过发送广播，实现一对多的消息发送。NSNotificationCenter使用起来灵活性特别高，但有时候过度使用反而是NSNotificationCenter 的弊端。在项目的设计中，我们也常会思考的一个问题：限制部分灵活性，以此来交换应用的可读性和可维护性。 NSNotificationCenter 允许应用各种跨层访问，监听者要配">
 <meta name="keywords" content="Objective-c">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Objective-c &#39;super&#39; keyword">
-<meta property="og:url" content="http://yoursite.com/2015/05/13/2015-05-13-oc-zhong-de-super/index.html">
+<meta property="og:title" content="Objective-c Multicast Delegate">
+<meta property="og:url" content="http://yoursite.com/2016/03/14/2016-03-14-multicast-delegate-/index.html">
 <meta property="og:site_name" content="MrBoog Zone">
-<meta property="og:description" content="我们都知道当使用 self 调用方法时，会从当前类的方法列表中开始找，如果没有，就从父类中再找。当使用 super 时，则从父类的方法列表中开始找，然后调用父类的这个方法。这里 self 代表的是当前调用方法这个类的实例，super 代表父类，但具体是什么，或者是怎么做的呢，我们可以做实验检测一下。 创建一个Oc的类Dog，直接继承于 NSObject，里面有这样一些方法， 12345678910">
+<meta property="og:description" content="NSNotificationCenter 我们肯定都有使用过，通过发送广播，实现一对多的消息发送。NSNotificationCenter使用起来灵活性特别高，但有时候过度使用反而是NSNotificationCenter 的弊端。在项目的设计中，我们也常会思考的一个问题：限制部分灵活性，以此来交换应用的可读性和可维护性。 NSNotificationCenter 允许应用各种跨层访问，监听者要配">
 <meta property="og:locale" content="en">
-<meta property="og:updated_time" content="2019-01-25T06:23:21.896Z">
+<meta property="og:updated_time" content="2019-01-25T06:14:05.211Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Objective-c &#39;super&#39; keyword">
-<meta name="twitter:description" content="我们都知道当使用 self 调用方法时，会从当前类的方法列表中开始找，如果没有，就从父类中再找。当使用 super 时，则从父类的方法列表中开始找，然后调用父类的这个方法。这里 self 代表的是当前调用方法这个类的实例，super 代表父类，但具体是什么，或者是怎么做的呢，我们可以做实验检测一下。 创建一个Oc的类Dog，直接继承于 NSObject，里面有这样一些方法， 12345678910">
+<meta name="twitter:title" content="Objective-c Multicast Delegate">
+<meta name="twitter:description" content="NSNotificationCenter 我们肯定都有使用过，通过发送广播，实现一对多的消息发送。NSNotificationCenter使用起来灵活性特别高，但有时候过度使用反而是NSNotificationCenter 的弊端。在项目的设计中，我们也常会思考的一个问题：限制部分灵活性，以此来交换应用的可读性和可维护性。 NSNotificationCenter 允许应用各种跨层访问，监听者要配">
 
 
 
@@ -127,13 +127,13 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/2015/05/13/2015-05-13-oc-zhong-de-super/">
+  <link rel="canonical" href="http://yoursite.com/2016/03/14/2016-03-14-multicast-delegate-/">
 
 
 
 
 
-  <title>Objective-c 'super' keyword | MrBoog Zone</title>
+  <title>Objective-c Multicast Delegate | MrBoog Zone</title>
   
 
 
@@ -269,7 +269,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2015/05/13/2015-05-13-oc-zhong-de-super/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2016/03/14/2016-03-14-multicast-delegate-/">
 
     <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Huan Liu">
@@ -286,7 +286,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">Objective-c 'super' keyword</h1>
+          <h1 class="post-title" itemprop="name headline">Objective-c Multicast Delegate</h1>
         
 
         <div class="post-meta">
@@ -298,8 +298,8 @@
               
                 <span class="post-meta-item-text">Posted on</span>
               
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2015-05-13T20:32:29+08:00">
-                2015-05-13
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2016-03-14T20:52:33+08:00">
+                2016-03-14
               </time>
             
 
@@ -339,8 +339,8 @@
                 <span class="post-meta-item-icon">
                   <i class="fa fa-comment-o"></i>
                 </span>
-                <a href="/2015/05/13/2015-05-13-oc-zhong-de-super/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2015/05/13/2015-05-13-oc-zhong-de-super/" itemprop="commentCount"></span>
+                <a href="/2016/03/14/2016-03-14-multicast-delegate-/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2016/03/14/2016-03-14-multicast-delegate-/" itemprop="commentCount"></span>
                 </a>
               </span>
             
@@ -368,24 +368,20 @@
       
 
       
-        <p>我们都知道当使用 self 调用方法时，会从当前类的方法列表中开始找，如果没有，就从父类中再找。当使用 super 时，则从父类的方法列表中开始找，然后调用父类的这个方法。这里 self 代表的是当前调用方法这个类的实例，super 代表父类，但具体是什么，或者是怎么做的呢，我们可以做实验检测一下。</p>
-<p>创建一个Oc的类Dog，直接继承于 NSObject，里面有这样一些方法，</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">- (void)doEat:(NSString *)food&#123;&#125;</span><br><span class="line"></span><br><span class="line">- (instancetype)init</span><br><span class="line">&#123;</span><br><span class="line">    if (self = [super init]) &#123;</span><br><span class="line">        NSLog(@&quot;%@&quot;, [self class]);</span><br><span class="line">        NSLog(@&quot;%@&quot;, [super class]);</span><br><span class="line">        NSLog(@&quot;self %@&quot;,self);</span><br><span class="line">        //NSLog(@&quot;super %@&quot;,super);</span><br><span class="line">    &#125;</span><br><span class="line">    return self;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>在初始化方法里，我们分别输出self和super的类。Dog父类是NSObject，那super输出的会是NSObject么？运行后发现其实二者都是输出Dog。同时，self是一个指针可以看到地址，而当我们把上面注释的那句代码打开，编译器会报一个错误<code>Use of undeclared identifier &#39;super&#39;</code>，可见super跟self不同的是，它不是当前类的一个参数。</p>
-<p>在终端中我们使用<code>clang -rewrite-objc Dog.m</code>，将上面代码转换成C，看到 - doEat:  转成了下面的C函数</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">static void _I_Dog_doEat_(Dog * self, SEL _cmd, NSString *food)&#123;&#125;</span><br></pre></td></tr></table></figure>
-<p>在C的方法中可以看到，这个方法里self是作为第一个参数传入的。这也印证了我们的想法，<code>self 是类的隐藏参数</code>，在转换成c后，每个类的实例方法中都会有这样一个参数。</p>
-<p>初始化中的NSLog方法，转换成C如下</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">NSLog((NSString *)&amp;__NSConstantStringImpl__var_folders__z_yckwz02x3m1c7_8b6mc8zynm0000gn_T_Dog_ae5b20_mi_0, ((Class (*)(id, SEL))(void *)objc_msgSend)((id)self, sel_registerName(&quot;class&quot;)));</span><br><span class="line">NSLog((NSString *)&amp;__NSConstantStringImpl__var_folders__z_yckwz02x3m1c7_8b6mc8zynm0000gn_T_Dog_ae5b20_mi_1, ((Class (*)(__rw_objc_super *, SEL))(void *)objc_msgSendSuper)((__rw_objc_super)&#123;(id)self, (id)class_getSuperclass(objc_getClass(&quot;Dog&quot;))&#125;, sel_registerName(&quot;class&quot;)));</span><br></pre></td></tr></table></figure>
-<p>我们看到 self 和 super 调用方法时，分别使用了如下C函数</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">id objc_msgSend(id self, SEL op, ...)</span><br><span class="line">id objc_msgSendSuper(struct objc_super *super, SEL op, ...)</span><br></pre></td></tr></table></figure>
-<p>所以，其实 super 与 self 不同，<code>不是一个参数，而是一个编译器标识符</code>。由 super 调用的方法，在编译后被转换成 objc_msgSendSuper，其中第一个参数 <a href="https://developer.apple.com/library/mac/documentation/Cocoa/Reference/ObjCRuntimeRef/#//apple_ref/c/tag/objc_super" target="_blank" rel="noopener">结构体 objc_super</a> 也是编译器在遇到 super 关键字的时候，生成的。定义如下</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">struct objc_super &#123; id receiver; Class class; &#125;;</span><br></pre></td></tr></table></figure>
-<p>所以编译器在遇到 super 时，大体做了两件事</p>
-<ul>
-<li>创建 objc_super结构体</li>
-<li>调用 objc_msgSendSuper，向父类方法发送消息。</li>
-</ul>
+        <p>NSNotificationCenter 我们肯定都有使用过，通过发送广播，实现一对多的消息发送。NSNotificationCenter使用起来灵活性特别高，但有时候过度使用反而是NSNotificationCenter 的弊端。在项目的设计中，我们也常会思考的一个问题：<strong>限制部分灵活性，以此来交换应用的可读性和可维护性。</strong></p>
+<p>NSNotificationCenter 允许应用各种跨层访问，监听者要配合合理使用add、remove等方法，出了问题实在不好跟踪。在某些时刻，需要酌情考虑是否应该使用。</p>
+<p>对于一对多的消息发送，其实还有很多办法可以考虑。比如说，我们可以通过<strong>NSProxy 实现消息转发</strong>，将我们普通一对一的delegate模式，改为一对多。</p>
+<p>在目前实现过程中，需要考虑的主要有下面三点：</p>
+<p><strong>1. 使用<a href="http://nshipster.com/nshashtable-and-nsmaptable/" target="_blank" rel="noopener">NSHashTable</a> 处理循环引用问题</strong></p>
+<p>既然是一对多，肯定需要有容器保存delegate指针，出于避免循环引用等问题的考虑，目前使用<code>NSHashTable</code>代替了数组或者字典。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line">- (instancetype)init&#123;</span><br><span class="line">    _delegates = [NSHashTable hashTableWithOptions:NSHashTableWeakMemory];</span><br><span class="line">    return self;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">- (void)addDelegate:(id)delegate&#123;</span><br><span class="line">    if (delegate != nil) &#123;</span><br><span class="line">        [_delegates addObject:delegate];</span><br><span class="line">    &#125;else&#123;</span><br><span class="line">        NSAssert(NO, @&quot;delegate couldn&apos;t be nil&quot;);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">- (void)removeDelegate:(id)delegate&#123;</span><br><span class="line">    [_delegates removeObject:delegate];</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">- (void)removeAllDelegates&#123;</span><br><span class="line">    [_delegates removeAllObjects];</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p><strong>2. 使用message forwarding转发消息</strong></p>
+<p><code>-methodSignatureForSelector:</code> 和 <code>-forwardInvocation:</code>两个方法是实现转发的关键，使用<a href="https://developer.apple.com/library/mac/documentation/Cocoa/Reference/Foundation/Classes/NSProxy_Class/" target="_blank" rel="noopener">NSProxy</a> 只是因为相对于 NSObject，NSProxy更专注于消息转发，没有其他太多无关的方法。当然也可以使用NSObject来做。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br></pre></td><td class="code"><pre><span class="line">- (NSMethodSignature *)methodSignatureForSelector:(SEL)sel</span><br><span class="line">&#123;</span><br><span class="line">    for (id delegate in _delegates) &#123;</span><br><span class="line">        </span><br><span class="line">        NSMethodSignature *result = [delegate methodSignatureForSelector:sel];</span><br><span class="line">        if (result != nil) &#123;</span><br><span class="line">            return result;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">   </span><br><span class="line">    // This causes a crash...</span><br><span class="line">    //        return [super methodSignatureForSelector:sel];</span><br><span class="line">    return [[self class] instanceMethodSignatureForSelector:@selector(doNothing)];</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">- (void)forwardInvocation:(NSInvocation *)invocation</span><br><span class="line">&#123;</span><br><span class="line">    SEL sel = invocation.selector;</span><br><span class="line">    </span><br><span class="line">    for (id delegate in _delegates) &#123;</span><br><span class="line">        if ([delegate respondsToSelector:sel]) &#123;</span><br><span class="line">            [invocation invokeWithTarget:delegate];</span><br><span class="line">        &#125;else&#123;</span><br><span class="line">            </span><br><span class="line">            // This causes a crash...</span><br><span class="line">            //        [super forwardInvocation:invocation];</span><br><span class="line">            [self doNothing];</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">- (void)doNothing&#123;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p><strong>3. 处理 @optional的协议方法 crash问题</strong></p>
+<p>协议不可能都是 @required 肯定还有 @optional，在转发中记得处理可能crash的情况。</p>
+<p>使用Multicast Delegate，<strong>中间多了一层 protocol 关联</strong>，某种情况下可以解决NSNotificationCenter 跨层带来的过于松散等问题。</p>
+<p><a href="https://github.com/MrBoog/SafeMulticastDelegate" target="_blank" rel="noopener">DEMO 地址</a></p>
 
       
     </div>
@@ -416,8 +412,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2015/04/07/2015-04-07-makeobjectsperformselector/" rel="next" title="Objective-c '-makeObjectsPerformSelector:'">
-                <i class="fa fa-chevron-left"></i> Objective-c '-makeObjectsPerformSelector:'
+              <a href="/2015/12/28/2015-12-28-gcd-synchron/" rel="next" title="GCD同步操作之 barriers  groups  semaphore">
+                <i class="fa fa-chevron-left"></i> GCD同步操作之 barriers  groups  semaphore
               </a>
             
           </div>
@@ -426,8 +422,8 @@
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2015/05/19/2015-05-19-mo-ni-di-su-wang-luo/" rel="prev" title="Terminal中模拟低速网络">
-                Terminal中模拟低速网络 <i class="fa fa-chevron-right"></i>
+              <a href="/2016/04/20/2016-04-20-gem-source/" rel="prev" title="Change gem source">
+                Change gem source <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -749,9 +745,9 @@
     
       <script type="text/javascript">
         var disqus_config = function () {
-          this.page.url = 'http://yoursite.com/2015/05/13/2015-05-13-oc-zhong-de-super/';
-          this.page.identifier = '2015/05/13/2015-05-13-oc-zhong-de-super/';
-          this.page.title = 'Objective-c \'super\' keyword';
+          this.page.url = 'http://yoursite.com/2016/03/14/2016-03-14-multicast-delegate-/';
+          this.page.identifier = '2016/03/14/2016-03-14-multicast-delegate-/';
+          this.page.title = 'Objective-c Multicast Delegate';
         };
         var d = document, s = d.createElement('script');
         s.src = 'https://disqus_3DtNmleMoQ.disqus.com/embed.js';

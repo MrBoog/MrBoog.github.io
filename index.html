@@ -938,7 +938,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2016/04/20/2016-04-20-gem-source-geng-huan/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2016/05/11/2016-05-11-hexo/">
 
     <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Huan Liu">
@@ -957,7 +957,170 @@
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/2016/04/20/2016-04-20-gem-source-geng-huan/" itemprop="url">Change gem source</a></h1>
+                <a class="post-title-link" href="/2016/05/11/2016-05-11-hexo/" itemprop="url">Workflow Of hexo</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2016-05-11T21:54:18+08:00">
+                2016-05-11
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2016/05/11/2016-05-11-hexo/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2016/05/11/2016-05-11-hexo/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p>之前最开始我用的博客是Octopress，现在来看Octopress的样式已经kinda out of fashion了😂。网上寻寻觅觅，发现hexo还不错，花了点时间把旧的博客移植到hexo上来。这里简单记录下相应的流程</p>
+<h3 id="初始化工作"><a href="#初始化工作" class="headerlink" title="初始化工作:"></a>初始化工作:</h3><ol>
+<li><p>setup hexo            </p>
+<pre><code>npm install hexo-cli -g
+</code></pre></li>
+<li><p>initial        </p>
+<pre><code>hexo init YourName.github.io (创建对应目录并初始化)
+</code></pre></li>
+<li><p>install        </p>
+<pre><code>cd YourName.github.io        
+npm install
+</code></pre></li>
+<li><p>setup theme<br> 我的主题是:<br> <a href="https://github.com/iissnan/hexo-theme-next" target="_blank" rel="noopener">https://github.com/iissnan/hexo-theme-next</a></p>
+</li>
+</ol>
+<h3 id="配置Github-io"><a href="#配置Github-io" class="headerlink" title="配置Github.io:"></a>配置Github.io:</h3><ol>
+<li><p>Follow up [github pages官方文档]进行设置(<a href="https://pages.github.com/" target="_blank" rel="noopener">https://pages.github.com/</a>)</p>
+</li>
+<li><p>进入博客根目录，配置hexo-deployer-git帮助部署            </p>
+<p> cd YourName.github.io<br> npm install hexo-deployer-git –save</p>
+</li>
+<li><p>打开配置文件输入        </p>
+<pre><code>deploy:     
+type: git     
+repo: https://github.com/xxx/xxxx.github.io.git
+</code></pre></li>
+</ol>
+<h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post:"></a>Create a new post:</h3><pre><code>hexo new &quot;My New Post&quot;
+</code></pre><h3 id="Run-server-本地预览"><a href="#Run-server-本地预览" class="headerlink" title="Run server 本地预览:"></a>Run server 本地预览:</h3><pre><code>hexo s            
+</code></pre><p>（本地打开 <a href="http://localhost:4000/）" target="_blank" rel="noopener">http://localhost:4000/）</a></p>
+<h3 id="清缓存、生成和部署"><a href="#清缓存、生成和部署" class="headerlink" title="清缓存、生成和部署:"></a>清缓存、生成和部署:</h3><pre><code>hexo clean 
+hexo g            
+hexo d
+</code></pre><h3 id="Others"><a href="#Others" class="headerlink" title="Others:"></a>Others:</h3><p>注意部署到github.io的是<strong>xxx.github.io/public</strong>文件夹下面自动生成后的内容，最好不要手动改动该文件夹下面的文件。<br>如果有图片，可以放置在你<strong>主题目录下面的source目录下</strong>。</p>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2016/04/20/2016-04-20-gem-source/">
+
+    <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Huan Liu">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/thumbnail.JPG">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="MrBoog Zone">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2016/04/20/2016-04-20-gem-source/" itemprop="url">Change gem source</a></h1>
         
 
         <div class="post-meta">
@@ -1010,8 +1173,8 @@
                 <span class="post-meta-item-icon">
                   <i class="fa fa-comment-o"></i>
                 </span>
-                <a href="/2016/04/20/2016-04-20-gem-source-geng-huan/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2016/04/20/2016-04-20-gem-source-geng-huan/" itemprop="commentCount"></span>
+                <a href="/2016/04/20/2016-04-20-gem-source/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2016/04/20/2016-04-20-gem-source/" itemprop="commentCount"></span>
                 </a>
               </span>
             
@@ -1094,7 +1257,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2016/03/14/2016-03-14-multicast-delegate-in-oc/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2016/03/14/2016-03-14-multicast-delegate-/">
 
     <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Huan Liu">
@@ -1113,7 +1276,7 @@
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/2016/03/14/2016-03-14-multicast-delegate-in-oc/" itemprop="url">Objective-c Multicast Delegate</a></h1>
+                <a class="post-title-link" href="/2016/03/14/2016-03-14-multicast-delegate-/" itemprop="url">Objective-c Multicast Delegate</a></h1>
         
 
         <div class="post-meta">
@@ -1166,8 +1329,8 @@
                 <span class="post-meta-item-icon">
                   <i class="fa fa-comment-o"></i>
                 </span>
-                <a href="/2016/03/14/2016-03-14-multicast-delegate-in-oc/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2016/03/14/2016-03-14-multicast-delegate-in-oc/" itemprop="commentCount"></span>
+                <a href="/2016/03/14/2016-03-14-multicast-delegate-/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2016/03/14/2016-03-14-multicast-delegate-/" itemprop="commentCount"></span>
                 </a>
               </span>
             
@@ -1786,217 +1949,6 @@
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">react-native init HelloReactNative</span><br></pre></td></tr></table></figure>
 <p>找到index.ios.js，替换一下下面的代码。找到iOS文件夹下面的工程，运行一下，一个简单用ReactNative实现的helloworld程序，就可以跑起来了。</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line">&apos;use strict&apos;;</span><br><span class="line"></span><br><span class="line">var React = require(&apos;react-native&apos;);</span><br><span class="line"></span><br><span class="line">var styles = React.StyleSheet.create(&#123;</span><br><span class="line">  text: &#123;</span><br><span class="line">    color: &apos;black&apos;,</span><br><span class="line">    backgroundColor: &apos;white&apos;,</span><br><span class="line">    fontSize: 30,</span><br><span class="line">    margin: 80</span><br><span class="line">  &#125;</span><br><span class="line">&#125;);</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">// for app itself</span><br><span class="line">class ReactNativeDemoApp extends React.Component &#123;</span><br><span class="line">  render() &#123;</span><br><span class="line">    return React.createElement(React.Text, &#123;style: styles.text&#125;, &quot;Hello World&quot;);</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">React.AppRegistry.registerComponent(&apos;HelloReactNative&apos;, () =&gt; ReactNativeDemoApp);</span><br></pre></td></tr></table></figure>
-
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2015/09/30/2015-09-30-guan-yu-nsoperation/">
-
-    <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Huan Liu">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/thumbnail.JPG">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="MrBoog Zone">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2015/09/30/2015-09-30-guan-yu-nsoperation/" itemprop="url">NSOperation</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">Posted on</span>
-              
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2015-09-30T17:56:07+08:00">
-                2015-09-30
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category">
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">In</span>
-              
-              
-                <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing">
-                  <a href="/categories/tech/" itemprop="url" rel="index">
-                    <span itemprop="name">tech</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-              <span class="post-comments-count">
-                <span class="post-meta-divider">|</span>
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-comment-o"></i>
-                </span>
-                <a href="/2015/09/30/2015-09-30-guan-yu-nsoperation/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2015/09/30/2015-09-30-guan-yu-nsoperation/" itemprop="commentCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <p>NSOperation 是 abstract class 抽象类，不能直接使用，我们使用的时候，一般要子类化，或者直接使用系统提供的两个子类：</p>
-<ul>
-<li>NSInvocationOperation</li>
-<li>NSBlockOperation</li>
-</ul>
-<p>虽然GCD使用起来很方便，但使用不当也会暴露一些问题，比如对任务状态的不好控制等。这可能导致有些我们本来需要取消掉的任务，一直在运行，占用资源。这些情况下我们可以考虑通过 NSOperationQueue 加强对任务的控制。</p>
-<hr>
-<h4 id="NSInvocationOperation"><a href="#NSInvocationOperation" class="headerlink" title="NSInvocationOperation"></a>NSInvocationOperation</h4><p>NSInvocationOperation是抽象类NSOperation的实体子类，可以直接使用。如果不结合NSOperationQueue，单独通过调用 start方法使用，NSInvocationOperation是非并发的操作。例如：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">   // 通过 start 直接调用，任务将在主线程中执行。</span><br><span class="line">   NSInvocationOperation *invocationOp = [[NSInvocationOperation alloc] initWithTarget:self selector:@selector(doSomeThingWithInvocation:) object:nil];</span><br><span class="line">   [invocationOp start];</span><br><span class="line"></span><br><span class="line">// 或者通过 addOperation 将任务加入队列，可在子线程中执行</span><br><span class="line">myOperationQueue = [[NSOperationQueue alloc] init];</span><br><span class="line">[myOperationQueue addOperation:invocationOp];</span><br></pre></td></tr></table></figure>
-<p>当然，在swift中,NSInvocation相关的类，都已经去掉了(不知道以后会不会加入)，也许NSInvocationOperation也是退出历史舞台的节奏。</p>
-<hr>
-<h4 id="NSBlockOperation"><a href="#NSBlockOperation" class="headerlink" title="NSBlockOperation"></a>NSBlockOperation</h4><p>NSBlockOperation也是NSOperation的子类，只是跟NSInvocationOperation使用NSInvocation不同，NSBlockOperation使用block，使用起来会更方便。        </p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">myOperationQueue = [[NSOperationQueue alloc] init];	  	   </span><br><span class="line">NSBlockOperation *blockOp = [NSBlockOperation blockOperationWithBlock:^&#123;</span><br><span class="line">       //需要执行的任务</span><br><span class="line">   &#125;];</span><br><span class="line">   </span><br><span class="line">   [blockOp addExecutionBlock:^&#123;</span><br><span class="line">       //需要执行的任务</span><br><span class="line">   &#125;];</span><br><span class="line">   </span><br><span class="line">   // finished属性为YES后(完成或者被取消)将会执行</span><br><span class="line">   __weak NSBlockOperation *weakOp = blockOp;</span><br><span class="line">   [blockOp setCompletionBlock:^&#123;</span><br><span class="line">	</span><br><span class="line">	if (!weakOp.isCancelled) &#123;</span><br><span class="line">	</span><br><span class="line">		[[NSOperationQueue mainQueue] addOperationWithBlock:^&#123;</span><br><span class="line">        	//更新主线程</span><br><span class="line">   	    &#125;];			</span><br><span class="line">	&#125;</span><br><span class="line">   &#125;];</span><br><span class="line"></span><br><span class="line">[myOperationQueue addOperation:blockOp];</span><br></pre></td></tr></table></figure>
-<p>上面代码，block相互之间都是并行异步的。也就是说可以同时执行多个block，不同block之间不会相互阻塞。不用等待依赖其他block完成。block内部是顺序执行的。 </p>
-<p>通过添加依赖，来控制不同的NSBlockOperation之间是否完全并行执行。注意不要循环依赖导致死锁。    </p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">NSBlockOperation *blockOp2 = [NSBlockOperation blockOperationWithBlock:^&#123;</span><br><span class="line">	//需要执行的任务</span><br><span class="line">   &#125;];</span><br><span class="line">   </span><br><span class="line">   //blockOp2 将等待至 blockOp 结束后，开始执行</span><br><span class="line">   [blockOp2 addDependency:blockOp];</span><br><span class="line">[myOperationQueue addOperation:blockOp2];</span><br></pre></td></tr></table></figure>
-<hr>
-<h4 id="子类化自定义NSOperation"><a href="#子类化自定义NSOperation" class="headerlink" title="子类化自定义NSOperation"></a>子类化自定义NSOperation</h4><p>我们可以选择重写 <code>main</code> 方法，或者 <code>start</code> 方法，来实现。</p>
-<ul>
-<li>main：重写main方法，不需要手动管理太多状态，使用起来比较简单。</li>
-</ul>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">- (void)main &#123;</span><br><span class="line">   	@autoreleasepool &#123;</span><br><span class="line"></span><br><span class="line">		//在这里，我们要频繁的检测 isCancelled 属性</span><br><span class="line">		if(self.isCancelled)&#123;</span><br><span class="line">			return;</span><br><span class="line">		&#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<ul>
-<li>start：我们一般不会重写start，相对于重写main方法，处理上要更复杂些。要自己注意任务的一些状态比如isExecuting，isFinished，isConcurrent(isAsynchronous)，isReady。注意，当实现了start，就不会执行main。</li>
-</ul>
-<ul>
-<li>dependency：任务之间添加依赖。有时候某一个任务，需要等待其他任务的结束后才能开始。这时候，相对于使用GCD的dispatch_barrier_async更容易理解一些。</li>
-</ul>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">//在op2的任务尚未执行时，添加依赖，op2将等待直到op完成</span><br><span class="line">[op2 addDependency:op];</span><br><span class="line">//移出op2的依赖</span><br><span class="line">[op2 removeDependency:op];</span><br></pre></td></tr></table></figure>
-<ul>
-<li>Completion block：任务完成后的回调，要注意此时并没有回到主线程。</li>
-</ul>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">__weak NSBlockOperation *weakOp = blockOp;</span><br><span class="line">[blockOp setCompletionBlock:^&#123;</span><br><span class="line">    </span><br><span class="line">    if ( !weakOp.isCancelled ) &#123;</span><br><span class="line">        [[NSOperationQueue mainQueue] addOperationWithBlock:^&#123;</span><br><span class="line"></span><br><span class="line">        &#125;];</span><br><span class="line">    &#125;</span><br><span class="line">&#125;];</span><br></pre></td></tr></table></figure>
-<p>另外有几点需要注意：</p>
-<ul>
-<li><p>已经完成的任务，不能被重新执行。    </p>
-</li>
-<li><p>已经添加到队列的任务，也不能被重复添加。    </p>
-</li>
-<li><p>当我们对一个任务发送<code>cancel</code>消息时，属性isCancelled会变为YES。    不过，对于自定义的NSOperation来说，要格外注意些。</p>
-<p>  在发送cancel消息的时候，如果任务还未开始执行(isExecuting == NO)，就会被 finished 并 从队列中 remove 。</p>
-<p>  如果任务正在执行中，这时候任务不会被强制结束。所以这时候，我们要在main方法中，手动检测(isCancelled == YES)并处理。        </p>
-</li>
-<li>isFinished等于YES，不代表任务成功完成。也可能任务被取消。所以有时候，我们在Completion block回调中，需要判断任务是否被取消。</li>
-</ul>
-<hr>
-<h4 id="NSOperationQueue"><a href="#NSOperationQueue" class="headerlink" title="NSOperationQueue"></a>NSOperationQueue</h4><p>我们有两种不同的队列，主队列和自定义队列。主队列在主线程运行，自定义会开启子线程。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">NSOperationQueue *mainQueue = [NSOperationQueue mainQueue];  </span><br><span class="line">NSOperationQueue *queue = [[NSOperationQueue alloc] init];</span><br></pre></td></tr></table></figure>
-<p>使用NSOperationQueue    的时候，系统默认会根据当前资源使用的情况，来为我们考虑最合适的线程数。当然我们也可以手动设置<code>maxConcurrentOperationCount</code>，限制使用的最大的线程数。更多的时候，其实我们不关心，交给系统处理就好。        </p>
-<ul>
-<li><p>name：一般我们使用队列的时候，都要给一个队列名字，方便我们维护debug。</p>
-</li>
-<li><p>suspended：用来暂停和恢复队列中的所有任务。不能单独针对队列中的某一个任务。</p>
-</li>
-</ul>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">// Suspend</span><br><span class="line">[myOperationQueue setSuspended:YES];</span><br><span class="line">... </span><br><span class="line">// Resume</span><br><span class="line">[myOperationQueue setSuspended:NO];</span><br></pre></td></tr></table></figure>
-<ul>
-<li>operationCount (readonly)：获取队列中还存在的正在执行的、等待执行的任务数量。注意，当任务一旦finished，就会从队列中remove。        </li>
-<li>cancelAllOperations：对队列所有的operations，发送<code>cancel</code>消息，将 isCancelled 属性设置为 YES 。如我们之前讨论过的，当operation 的 isExecuting 状态为 NO 时，operation 会被 finished 并从队列中 remove 。如果 isExecuting 状态为 YES ，那么我们自定义的operation，就要手动检测 isCancelled 属性。</li>
-</ul>
 
           
         

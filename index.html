@@ -374,7 +374,9 @@
 本书说的是作者的观点，或者说作者对世界的认识，不是真理。
 本书写作目的，主要是回答作者自己对这个世界的好奇：
 为什么是欧洲人征服了美洲，是人种在生物学上的差异吗？
-达尔文思想的进化与演化(最低级的细菌，仍然是细菌)，关于种族主
+达尔文思想的进化与演化(最低级的细菌，仍然是细菌)，关于种族主义。
+狩猎采集社会中部落所需要掌握的知识，尤其是生存技能，其实很复杂。
+年代测量法 C-14碳-14年代测定法：大气中的碳-14，伴随二氧化碳进入碳循环（植物光合-动物），生物死亡
           ...
           <!--noindex-->
           <div class="post-button text-center">
@@ -532,7 +534,7 @@
       
         
           
-          作为iOS开发者，从苹果刚推出Swift到现在，断断续续也用了一段时间了。Swift本身语法很简洁很现代，但实际应用在项目中走过的坑还真不少😂，不过好在都有解决办法，而且总体上开发者应该都是很认可这个语言的。在学习和使用swift的过程中，相信大家肯定从这门
+          作为iOS开发者，从苹果刚推出Swift到现在，断断续续也用了一段时间了。Swift本身语法很简洁很现代，但实际应用在项目中走过的坑还真不少😂，不过好在都有解决办法，而且总体上开发者应该都是很认可这个语言的。在学习和使用swift的过程中，相信大家肯定从这门语言身上都看到了很多现代语言的影子，比如Python、JavaScript等等。不过，除了语法层面可以和这些语言类比，今天我们可以从另一面对比一下它们，就是用来写脚本。对的，其实s
           ...
           <!--noindex-->
           <div class="post-button text-center">
@@ -690,7 +692,15 @@
       
         
           
-          2016年苹果上线了新的推送验证方式，使用新的方式我们将不再需要之前的 .p12或者.pem文件，取而代之的是一个.p8文件 (并且不用区分dev和release环境)。一些大的推送服务厂商已经开始支持这种新的方式了，比如国外的Firebase。这种新的方式优
+          2016年苹果上线了新的推送验证方式，使用新的方式我们将不再需要之前的 .p12或者.pem文件，取而代之的是一个.p8文件 (并且不用区分dev和release环境)。一些大的推送服务厂商已经开始支持这种新的方式了，比如国外的Firebase。这种新的方式优势还是很明显的，比如说
+
+速度更快 
+可以支持同一开发者账号下的多个App 
+支持多个后台同时使用同一个文件 
+不需要考虑生产和开发环境
+不会过期
+
+需要注意的是，虽然新的推送验证
           ...
           <!--noindex-->
           <div class="post-button text-center">
@@ -848,7 +858,9 @@
       
         
           
-          When our App crashes, a crash report is created and stored on the device. But usually, we need to symbolicate the log before analy
+          When our App crashes, a crash report is created and stored on the device. But usually, we need to symbolicate the log before analyzing it. So here I write down the steps to symbolicate crash log.
+
+Create a new folder. Pl
           ...
           <!--noindex-->
           <div class="post-button text-center">
@@ -1006,7 +1018,8 @@
       
         
           
-          Class cluster，类簇，这是苹果对抽象工厂模式一种应用，在苹果的Framework中使用广泛，是定义了相同的接口，并提供相同功能的一组类的集合。类簇会有一个公共抽象超类，比如NSString,NSArray,NSNumber,NSDictionary
+          Class cluster，类簇，这是苹果对抽象工厂模式一种应用，在苹果的Framework中使用广泛，是定义了相同的接口，并提供相同功能的一组类的集合。类簇会有一个公共抽象超类，比如NSString,NSArray,NSNumber,NSDictionary等等，来完成实例化一个具体的私有子类。对于使用者来说，只需要知道有公共超类各种API的作用就可以，不需要知道，超类背后子类的实际实现。
+self = [super init]我们在
           ...
           <!--noindex-->
           <div class="post-button text-center">
@@ -1144,7 +1157,11 @@
           
           之前最开始我用的博客是Octopress，现在来看Octopress的样式已经kinda out of fashion了😂。网上寻寻觅觅，发现hexo还不错，花了点时间把旧的博客移植到hexo上来。这里简单记录下相应的流程
 初始化工作:
-setup hexo
+setup hexo            
+npm install hexo-cli -g
+
+initial        
+hexo init YourName.github.io (创建对应目录
           ...
           <!--noindex-->
           <div class="post-button text-center">
@@ -1304,7 +1321,7 @@ setup hexo
           
           换电脑重新装pods的时候报错，其实是gem报错了。
 在执行 gem install cocoapods 的时候，遇到了下面的错误，
-1Unable to download data from https://ruby.taobao.org/ - SSL_co
+1Unable to download data from https://ruby.taobao.org/ - SSL_connect returned=1 errno=0 state=SSLv3 read server certificate B: certificate verify failed 
           ...
           <!--noindex-->
           <div class="post-button text-center">
@@ -1462,7 +1479,8 @@ setup hexo
       
         
           
-          NSNotificationCenter 我们肯定都有使用过，通过发送广播，实现一对多的消息发送。NSNotificationCenter使用起来灵活性特别高，但有时候过度使用反而是NSNotificationCenter 的弊端。在项目的设计中，我们也常会思
+          NSNotificationCenter 我们肯定都有使用过，通过发送广播，实现一对多的消息发送。NSNotificationCenter使用起来灵活性特别高，但有时候过度使用反而是NSNotificationCenter 的弊端。在项目的设计中，我们也常会思考的一个问题：限制部分灵活性，以此来交换应用的可读性和可维护性。
+NSNotificationCenter 允许应用各种跨层访问，监听者要配合合理使用add、remove等方法，出
           ...
           <!--noindex-->
           <div class="post-button text-center">
@@ -1621,7 +1639,7 @@ setup hexo
         
           
           在学会简单的使用GCD处理多线程之后，我们来再深入了解下GCD对多线程的一些同步控制。
-dispatch barriers在使用 Concurrent Queue 的时候，有时候我们希望队列中的某项任务，能够被串行执行，来避免资源竞争等多线程问题。比如遇到读写
+dispatch barriers在使用 Concurrent Queue 的时候，有时候我们希望队列中的某项任务，能够被串行执行，来避免资源竞争等多线程问题。比如遇到读写问题，这时候我们就需要使用 dispatch barriers。来保证即使在并行队列中，对某个对象的读和写操作，在同一时刻，只有一个可以被执行。这时候就可以用到 dispatch 
           ...
           <!--noindex-->
           <div class="post-button text-center">
@@ -1785,7 +1803,10 @@ dispatch barriers在使用 Concurrent Queue 的时候，有时候我们希望队
 serial（串行） 某一时刻，只执行一个任务
 concurrent（并行） 可以同时执行多个任务
 
-侧重描述一个函数的执行完成，对其他任务的影响 
+侧重描述一个函数的执行完成，对其他任务的影响 (既 是否任务在等待某个函数完成，然后才可以运行)：
+
+synchronous（同步） 任务执行完成后reture，（阻塞）
+asynchronous（异步） 不等待任务执行完成，
           ...
           <!--noindex-->
           <div class="post-button text-center">

@@ -370,7 +370,11 @@
         
           
           在学习和使用Objective-c语言的时候，我们随处可见‘@’符号，这和其他语言有很大不同。像是Python里面的装饰器，或是某种Syntactic sugar(语法糖)。
-由于c、c++本身没有‘@’，Oc这样设计可能是为了更好地和c、c++混编，因为不用
+由于c、c++本身没有‘@’，Oc这样设计可能是为了更好地和c、c++混编，因为不用担心关键字冲突。正如这篇文章所提到的。不过‘@’的用途多种多样，我感觉还是需要整理一下。
+
+@class
+@defs
+@protocol @required @optional @
           ...
           <!--noindex-->
           <div class="post-button text-center">
@@ -529,7 +533,8 @@
         
           
           首先在Mac下配置php环境在iOS开发中，有时候我们经常要测试APNS推送的部分，我们可以本地自己搭建推送的环境，这样自己测试起来也能提高效率。目前有很多类似的开源项目，比如pushmebaby,APNS-Pusher。本文适合喜欢自己在本地折腾的同学。
-启
+启动Mac的Apache服务。
+如果您还是10.7的用户，只需要在系统偏好设置--&gt;共享中勾选web共享即可:浏览器中输入localhost/~[用户名]，就可以直接访问/Us
           ...
           <!--noindex-->
           <div class="post-button text-center">
@@ -687,7 +692,8 @@
       
         
           
-          CoreGraphics框架在iOS开发中，与UIKit相依为命，占着十分重要的位置。所以对于开发者而言，学习和理解CoreGraphics框架肯定是必不可少啦。我们知道，在一个图形上下文之外进行绘图操作是不可能的。要进行绘制，首先要准备图形上下文。接下来我们
+          CoreGraphics框架在iOS开发中，与UIKit相依为命，占着十分重要的位置。所以对于开发者而言，学习和理解CoreGraphics框架肯定是必不可少啦。我们知道，在一个图形上下文之外进行绘图操作是不可能的。要进行绘制，首先要准备图形上下文。接下来我们就讨论一下几种使用graphics context的情况。    
+一般来讲，我们会建立一个UIView的子类，重载其drawRect:方法，执行该方法的时候系统会为我们准备一个图
           ...
           <!--noindex-->
           <div class="post-button text-center">

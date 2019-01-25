@@ -446,6 +446,168 @@ void UIGraphicsBeginImageContext (
 
 
     
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2013/05/11/2013-05-11-hexoHelp/">
+
+    <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Huan Liu">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/thumbnail.JPG">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="MrBoog Zone">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2013/05/11/2013-05-11-hexoHelp/" itemprop="url">Workflow Of hexo</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2013-05-11T21:54:18+08:00">
+                2013-05-11
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2013/05/11/2013-05-11-hexoHelp/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2013/05/11/2013-05-11-hexoHelp/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h3 id="初始化工作"><a href="#初始化工作" class="headerlink" title="初始化工作:"></a>初始化工作:</h3><ol>
+<li><p>setup hexo            </p>
+<pre><code>npm install hexo-cli -g
+</code></pre></li>
+<li><p>initial        </p>
+<pre><code>hexo init YourName.github.io (创建对应目录并初始化)
+</code></pre></li>
+<li><p>install        </p>
+<pre><code>cd YourName.github.io        
+npm install
+</code></pre></li>
+<li><p>setup theme<br> 我的主题是:<br> <a href="https://github.com/iissnan/hexo-theme-next" target="_blank" rel="noopener">https://github.com/iissnan/hexo-theme-next</a></p>
+</li>
+</ol>
+<h3 id="配置Github-io"><a href="#配置Github-io" class="headerlink" title="配置Github.io:"></a>配置Github.io:</h3><ol>
+<li><p>Follow up [github pages官方文档]进行设置(<a href="https://pages.github.com/" target="_blank" rel="noopener">https://pages.github.com/</a>)</p>
+</li>
+<li><p>进入博客根目录，配置hexo-deployer-git帮助部署            </p>
+<p> cd YourName.github.io<br> npm install hexo-deployer-git –save</p>
+</li>
+<li><p>打开配置文件输入        </p>
+<pre><code>deploy:     
+type: git     
+repo: https://github.com/xxx/xxxx.github.io.git
+</code></pre></li>
+</ol>
+<h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post:"></a>Create a new post:</h3><pre><code>hexo new &quot;My New Post&quot;
+</code></pre><h3 id="Run-server-本地预览"><a href="#Run-server-本地预览" class="headerlink" title="Run server 本地预览:"></a>Run server 本地预览:</h3><pre><code>hexo s            
+</code></pre><p>（本地打开 <a href="http://localhost:4000/）" target="_blank" rel="noopener">http://localhost:4000/）</a></p>
+<h3 id="清缓存、生成和部署"><a href="#清缓存、生成和部署" class="headerlink" title="清缓存、生成和部署:"></a>清缓存、生成和部署:</h3><pre><code>hexo clean 
+hexo g            
+hexo d
+</code></pre><h3 id="Others"><a href="#Others" class="headerlink" title="Others:"></a>Others:</h3><p>注意部署到github.io的是<strong>xxx.github.io/public</strong>文件夹下面自动生成后的内容，最好不要手动改动该文件夹下面的文件。<br>如果有图片，可以放置在你<strong>主题目录下面的source目录下</strong>。</p>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
   </section>
 
   
@@ -500,7 +662,7 @@ void UIGraphicsBeginImageContext (
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">21</span>
+                  <span class="site-state-item-count">22</span>
                   <span class="site-state-item-name">posts</span>
                 </a>
               </div>
@@ -522,7 +684,7 @@ void UIGraphicsBeginImageContext (
               
               <div class="site-state-item site-state-tags">
                 <a href="/tags/index.html">
-                  <span class="site-state-item-count">12</span>
+                  <span class="site-state-item-count">13</span>
                   <span class="site-state-item-name">tags</span>
                 </a>
               </div>

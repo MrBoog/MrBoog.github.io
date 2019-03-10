@@ -90,7 +90,7 @@
 <meta property="og:site_name" content="MrBoog">
 <meta property="og:description" content="NSOperation 是 abstract class 抽象类，不能直接使用，我们使用的时候，一般要子类化，或者直接使用系统提供的两个子类：  NSInvocationOperation NSBlockOperation  虽然GCD使用起来很方便，但使用不当也会暴露一些问题，比如对任务状态的不好控制等。这可能导致有些我们本来需要取消掉的任务，一直在运行，占用资源。这些情况下我们可以考虑通过 N">
 <meta property="og:locale" content="en">
-<meta property="og:updated_time" content="2019-01-25T06:16:11.650Z">
+<meta property="og:updated_time" content="2019-03-10T09:18:41.255Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="NSOperation">
 <meta name="twitter:description" content="NSOperation 是 abstract class 抽象类，不能直接使用，我们使用的时候，一般要子类化，或者直接使用系统提供的两个子类：  NSInvocationOperation NSBlockOperation  虽然GCD使用起来很方便，但使用不当也会暴露一些问题，比如对任务状态的不好控制等。这可能导致有些我们本来需要取消掉的任务，一直在运行，占用资源。这些情况下我们可以考虑通过 N">
@@ -317,8 +317,8 @@
               
               
                 <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing">
-                  <a href="/categories/tech/" itemprop="url" rel="index">
-                    <span itemprop="name">tech</span>
+                  <a href="/categories/coding/" itemprop="url" rel="index">
+                    <span itemprop="name">coding</span>
                   </a>
                 </span>
 
@@ -397,7 +397,7 @@
 <li>Completion block：任务完成后的回调，要注意此时并没有回到主线程。</li>
 </ul>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">__weak NSBlockOperation *weakOp = blockOp;</span><br><span class="line">[blockOp setCompletionBlock:^&#123;</span><br><span class="line">    </span><br><span class="line">    if ( !weakOp.isCancelled ) &#123;</span><br><span class="line">        [[NSOperationQueue mainQueue] addOperationWithBlock:^&#123;</span><br><span class="line"></span><br><span class="line">        &#125;];</span><br><span class="line">    &#125;</span><br><span class="line">&#125;];</span><br></pre></td></tr></table></figure>
-<p>另外有几点需要注意：</p>
+<p>另外有几点需要注意：<br>​        </p>
 <ul>
 <li><p>已经完成的任务，不能被重新执行。    </p>
 </li>

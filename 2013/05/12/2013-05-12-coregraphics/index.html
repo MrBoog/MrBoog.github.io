@@ -82,18 +82,18 @@
 
 
 
-<meta name="description" content="CoreGraphics框架在iOS开发中，与UIKit相依为命，占着十分重要的位置。所以对于开发者而言，学习和理解CoreGraphics框架肯定是必不可少啦。我们知道，在一个图形上下文之外进行绘图操作是不可能的。要进行绘制，首先要准备图形上下文。接下来我们就讨论一下几种使用graphics context的情况。     一般来讲，我们会建立一个UIView的子类，重载其drawRect:方法">
+<meta name="description" content="CoreGraphics框架在iOS开发中，与UIKit相依为命，占着十分重要的位置。所以对于开发者而言，学习和理解CoreGraphics框架肯定是必不可少啦。我们知道，在一个图形上下文之外进行绘图操作是不可能的。要进行绘制，首先要准备图形上下文。接下来我们就讨论一下几种使用graphics context的情况。​     一般来讲，我们会建立一个UIView的子类，重载其drawRect:方">
 <meta name="keywords" content="CoreGraphics">
 <meta property="og:type" content="article">
 <meta property="og:title" content="CoreGraphics context">
 <meta property="og:url" content="http://yoursite.com/2013/05/12/2013-05-12-coregraphics/index.html">
 <meta property="og:site_name" content="MrBoog">
-<meta property="og:description" content="CoreGraphics框架在iOS开发中，与UIKit相依为命，占着十分重要的位置。所以对于开发者而言，学习和理解CoreGraphics框架肯定是必不可少啦。我们知道，在一个图形上下文之外进行绘图操作是不可能的。要进行绘制，首先要准备图形上下文。接下来我们就讨论一下几种使用graphics context的情况。     一般来讲，我们会建立一个UIView的子类，重载其drawRect:方法">
+<meta property="og:description" content="CoreGraphics框架在iOS开发中，与UIKit相依为命，占着十分重要的位置。所以对于开发者而言，学习和理解CoreGraphics框架肯定是必不可少啦。我们知道，在一个图形上下文之外进行绘图操作是不可能的。要进行绘制，首先要准备图形上下文。接下来我们就讨论一下几种使用graphics context的情况。​     一般来讲，我们会建立一个UIView的子类，重载其drawRect:方">
 <meta property="og:locale" content="en">
-<meta property="og:updated_time" content="2019-01-25T07:45:33.061Z">
+<meta property="og:updated_time" content="2019-03-10T09:17:34.919Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="CoreGraphics context">
-<meta name="twitter:description" content="CoreGraphics框架在iOS开发中，与UIKit相依为命，占着十分重要的位置。所以对于开发者而言，学习和理解CoreGraphics框架肯定是必不可少啦。我们知道，在一个图形上下文之外进行绘图操作是不可能的。要进行绘制，首先要准备图形上下文。接下来我们就讨论一下几种使用graphics context的情况。     一般来讲，我们会建立一个UIView的子类，重载其drawRect:方法">
+<meta name="twitter:description" content="CoreGraphics框架在iOS开发中，与UIKit相依为命，占着十分重要的位置。所以对于开发者而言，学习和理解CoreGraphics框架肯定是必不可少啦。我们知道，在一个图形上下文之外进行绘图操作是不可能的。要进行绘制，首先要准备图形上下文。接下来我们就讨论一下几种使用graphics context的情况。​     一般来讲，我们会建立一个UIView的子类，重载其drawRect:方">
 
 
 
@@ -317,8 +317,8 @@
               
               
                 <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing">
-                  <a href="/categories/tech/" itemprop="url" rel="index">
-                    <span itemprop="name">tech</span>
+                  <a href="/categories/coding/" itemprop="url" rel="index">
+                    <span itemprop="name">coding</span>
                   </a>
                 </span>
 
@@ -364,7 +364,7 @@
       
 
       
-        <p>CoreGraphics框架在iOS开发中，与UIKit相依为命，占着十分重要的位置。所以对于开发者而言，学习和理解CoreGraphics框架肯定是必不可少啦。我们知道，在一个图形上下文之外进行绘图操作是不可能的。要进行绘制，首先要准备图形上下文。接下来我们就讨论一下几种使用graphics context的情况。    </p>
+        <p>CoreGraphics框架在iOS开发中，与UIKit相依为命，占着十分重要的位置。所以对于开发者而言，学习和理解CoreGraphics框架肯定是必不可少啦。我们知道，在一个图形上下文之外进行绘图操作是不可能的。要进行绘制，首先要准备图形上下文。接下来我们就讨论一下几种使用graphics context的情况。<br>​    </p>
 <p>一般来讲，我们会建立一个UIView的子类，重载其drawRect:方法，执行该方法的时候系统会为我们准备一个图形上下文。    </p>
 <pre><code>UIGraphics.h:
 
@@ -392,7 +392,8 @@ void UIGraphicsBeginImageContext (
 //这个相当于UIGraphicsBeginImageContextWithOptions (CGSize size,NO,1.0). 
 所以不推荐UIGraphicsBeginImageContext(CGSize size)。
 多使用UIGraphicsBeginImageContextWithOptions()。
-</code></pre><p>创建上下文，并将绘制的图保存到UIImage中        </p>
+</code></pre><p>​    </p>
+<p>创建上下文，并将绘制的图保存到UIImage中        </p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">//创建上下文</span><br><span class="line">UIGraphicsBeginImageContextWithOptions(size,NO,[[UIScreen mainScreen] scale]);		</span><br><span class="line">…绘图…		</span><br><span class="line">//获取结果		</span><br><span class="line">UIImage *result = UIGraphicsGetImageFromCurrentImageContext();	</span><br><span class="line">//清除上下文		</span><br><span class="line">UIGraphicsEndImageContext();</span><br></pre></td></tr></table></figure>
 <p>将绘制的图保存到UIImage中        </p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">CGColorSpaceRef colorSpace = CGColorSpaceCreateDeviceRGB();	</span><br><span class="line">//创建上下文		</span><br><span class="line">CGContextRef context = CGBitmapContextCreate(NULL,width,height,8,width*4,colorSpace,kCGImageAlphaPremultipliedLast);	</span><br><span class="line">//将创建的上下文设置为当前的上下文		</span><br><span class="line">UIGraphicsPushContext(context);			</span><br><span class="line">…绘图…		</span><br><span class="line">//获取结果			</span><br><span class="line">CGImageRef image = CGBitmapContextCreateImage(ctx);	</span><br><span class="line">UIImage *result = [[UIImage alloc] initWithCGImage:image];	</span><br><span class="line">//清理图片上下文			</span><br><span class="line">UIGraphicsPopContext();			</span><br><span class="line">CGImageRelease(image);			</span><br><span class="line">CGContextRelease(context);			</span><br><span class="line">CGColorSpaceRelease(colorSpace);</span><br></pre></td></tr></table></figure>

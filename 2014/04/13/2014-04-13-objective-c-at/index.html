@@ -90,7 +90,7 @@
 <meta property="og:site_name" content="MrBoog">
 <meta property="og:description" content="在学习和使用Objective-c语言的时候，我们随处可见‘@’符号，这和其他语言有很大不同。像是Python里面的装饰器，或是某种Syntactic sugar(语法糖)。 由于c、c++本身没有‘@’，Oc这样设计可能是为了更好地和c、c++混编，因为不用担心关键字冲突。正如这篇文章所提到的。不过‘@’的用途多种多样，我感觉还是需要整理一下。  @class @defs @protocol @">
 <meta property="og:locale" content="en">
-<meta property="og:updated_time" content="2019-01-25T07:41:19.908Z">
+<meta property="og:updated_time" content="2019-03-10T09:17:55.594Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Objective-c &#39;@&#39;">
 <meta name="twitter:description" content="在学习和使用Objective-c语言的时候，我们随处可见‘@’符号，这和其他语言有很大不同。像是Python里面的装饰器，或是某种Syntactic sugar(语法糖)。 由于c、c++本身没有‘@’，Oc这样设计可能是为了更好地和c、c++混编，因为不用担心关键字冲突。正如这篇文章所提到的。不过‘@’的用途多种多样，我感觉还是需要整理一下。  @class @defs @protocol @">
@@ -317,8 +317,8 @@
               
               
                 <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing">
-                  <a href="/categories/tech/" itemprop="url" rel="index">
-                    <span itemprop="name">tech</span>
+                  <a href="/categories/coding/" itemprop="url" rel="index">
+                    <span itemprop="name">coding</span>
                   </a>
                 </span>
 
@@ -383,7 +383,7 @@
 <li>@()</li>
 </ul>
 <p>以上涉及的这些，有的十分常见，也有的基本用不到。下面我们就给几个不常见的，或者比较重要的并且容易忽视的用法，总结一下。        </p>
-<h5 id="compatibility-alias"><a href="#compatibility-alias" class="headerlink" title="@compatibility_alias"></a>@compatibility_alias</h5><p>关于@compatibility_alias的用法，Mattt Thompson大大举过很好的<a href="http://nshipster.com/at-compiler-directives/" target="_blank" rel="noopener">示例</a>。在iOS5下想使用collectionView的效果，无疑<a href="https://github.com/ptshih/PSCollectionView" target="_blank" rel="noopener">PSTCollectionView</a> 是最佳的替代方案，下面的代码，可以为PSTCollectView起个别名。这样在iOS5我们也可以制造出使用UICollectionView的幻觉，重点是以后升级可以省去很多麻烦： </p>
+<h5 id="compatibility-alias"><a href="#compatibility-alias" class="headerlink" title="@compatibility_alias"></a>@compatibility_alias</h5><p>关于@compatibility_alias的用法，Mattt Thompson大大举过很好的<a href="http://nshipster.com/at-compiler-directives/" target="_blank" rel="noopener">示例</a>。在iOS5下想使用collectionView的效果，无疑<a href="https://github.com/ptshih/PSCollectionView" target="_blank" rel="noopener">PSTCollectionView</a> 是最佳的替代方案，下面的代码，可以为PSTCollectView起个别名。这样在iOS5我们也可以制造出使用UICollectionView的幻觉，重点是以后升级可以省去很多麻烦：<br>​    </p>
 <pre><code>#if __IPHONE_OS_VERSION_MAX_ALLOWED &lt; 60000    
     @compatibility_alias UICollectionViewController PSTCollectionViewController;        
     @compatibility_alias UICollectionView PSTCollectionView;    
@@ -411,7 +411,7 @@ NSNumber * number    = @12.3f;//([NSNumber numberWithFloat:12.3f])
 NSNumber * number = @YES;//([NSNumber numberWithBool:YES])        
 </code></pre><p>NSSet Literal:<br>以上应该大部分集合类的literal都有了，不过类似的NSSet Literal还没有提供。<br>我们可以用数组初始化的方式:            </p>
 <pre><code>NSSet * set = [NSSet setWithArray:@[@&quot;yes&quot;,@YES]];
-</code></pre><p>当然我们也可以通过自己宏定义来实现：        </p>
+</code></pre><p>当然我们也可以通过自己宏定义来实现：<br>​    </p>
 <pre><code>#define $(...)  [[NSSet alloc] initWithObjects:__VA_ARGS__, nil]    
  //或者            
 #define $(...)  [NSSet setWithObjects:__VA_ARGS__, nil]        

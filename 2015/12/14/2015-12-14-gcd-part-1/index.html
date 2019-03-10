@@ -90,7 +90,7 @@
 <meta property="og:site_name" content="MrBoog">
 <meta property="og:description" content="GCD是iOS开发多线程中经常使用的技术，先看一下GCD中的常见的术语 描述多个任务之间同一时刻的运行关系：  serial（串行） 某一时刻，只执行一个任务 concurrent（并行） 可以同时执行多个任务  侧重描述一个函数的执行完成，对其他任务的影响 (既 是否任务在等待某个函数完成，然后才可以运行)：  synchronous（同步） 任务执行完成后reture，（阻塞） asynchr">
 <meta property="og:locale" content="en">
-<meta property="og:updated_time" content="2019-01-25T06:15:56.827Z">
+<meta property="og:updated_time" content="2019-03-10T09:19:22.246Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="GCD 同步与异步 串行与并行">
 <meta name="twitter:description" content="GCD是iOS开发多线程中经常使用的技术，先看一下GCD中的常见的术语 描述多个任务之间同一时刻的运行关系：  serial（串行） 某一时刻，只执行一个任务 concurrent（并行） 可以同时执行多个任务  侧重描述一个函数的执行完成，对其他任务的影响 (既 是否任务在等待某个函数完成，然后才可以运行)：  synchronous（同步） 任务执行完成后reture，（阻塞） asynchr">
@@ -317,8 +317,8 @@
               
               
                 <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing">
-                  <a href="/categories/tech/" itemprop="url" rel="index">
-                    <span itemprop="name">tech</span>
+                  <a href="/categories/coding/" itemprop="url" rel="index">
+                    <span itemprop="name">coding</span>
                   </a>
                 </span>
 
@@ -389,7 +389,7 @@
 <p>系统同样有一个全局的并发队列</p>
 <ul>
 <li><p>global dispatch queue ( dispatch_get_global_queue )</p>
-<p>  这是另一个我们熟悉的并发队列，很多时候我们直接使用这个队列，可以简单处理一些我们需要并发执行的任务。</p>
+<p>这是另一个我们熟悉的并发队列，很多时候我们直接使用这个队列，可以简单处理一些我们需要并发执行的任务。</p>
 </li>
 </ul>
 <h2 id="Custom-Queue"><a href="#Custom-Queue" class="headerlink" title="Custom Queue"></a>Custom Queue</h2><p>除了系统提供的全局队列之外，我们还可以自定义串行或者并行的队列。</p>
@@ -398,10 +398,10 @@
 <p>另外，使用GCD，除了选择正确的队列外，还要关注：我们要执行的任务是同步还是异步执行。</p>
 <!--
 同步执行 串行queue 
-        并行queue
+​        并行queue
 
 异步执行 串行queue 
-        并行queue
+​        并行queue
 -->
 <hr>
 <h2 id="dispatch-async-异步执行"><a href="#dispatch-async-异步执行" class="headerlink" title="dispatch_async  异步执行"></a>dispatch_async  异步执行</h2><p>dispatch_async 用来用异步的方式执行串行或者并行队列里面的任务，我们来看一下使用 dispatch_async 的几种常见情况：</p>

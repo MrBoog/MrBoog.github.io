@@ -71,7 +71,7 @@
 
 
 
-  <meta name="keywords" content="iOS, swift, objective-c, python">
+  <meta name="keywords" content="Git,">
 
 
 
@@ -82,18 +82,18 @@
 
 
 
-<meta name="description" content="首先来看下Git的文件目录。某个工程目录中，执行在git init 之后，打开.git文件夹可以看到 git 目录结构如下: 1234567891011121314Git 目录结构.git/├── HEAD			当前branch的head├── config			配置信息├── description├── hooks├── info│   └── exclude├── objects			保存g">
-<meta name="keywords" content="swift python objective-c">
+<meta name="description" content="分布式的Git相对于svn优势已经很明显了。本文花几分钟时间简单探讨下Git 的思想和主要的对象类型。 首先来看下Git的文件目录。某个工程目录中，执行在git init 之后，打开.git文件夹可以看到 git 目录结构如下: 1234567891011121314Git 目录结构.git/├── HEAD        当前branch的head├── config      配置信息├──">
+<meta name="keywords" content="Git">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Git 文件对象存储实现方式">
 <meta property="og:url" content="http://yoursite.com/2019/11/29/2019-11-29-Git-文件对象存储实现方式/index.html">
 <meta property="og:site_name" content="MrBoog">
-<meta property="og:description" content="首先来看下Git的文件目录。某个工程目录中，执行在git init 之后，打开.git文件夹可以看到 git 目录结构如下: 1234567891011121314Git 目录结构.git/├── HEAD			当前branch的head├── config			配置信息├── description├── hooks├── info│   └── exclude├── objects			保存g">
+<meta property="og:description" content="分布式的Git相对于svn优势已经很明显了。本文花几分钟时间简单探讨下Git 的思想和主要的对象类型。 首先来看下Git的文件目录。某个工程目录中，执行在git init 之后，打开.git文件夹可以看到 git 目录结构如下: 1234567891011121314Git 目录结构.git/├── HEAD        当前branch的head├── config      配置信息├──">
 <meta property="og:locale" content="en">
-<meta property="og:updated_time" content="2019-11-29T06:36:08.514Z">
+<meta property="og:updated_time" content="2019-11-29T06:42:28.589Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Git 文件对象存储实现方式">
-<meta name="twitter:description" content="首先来看下Git的文件目录。某个工程目录中，执行在git init 之后，打开.git文件夹可以看到 git 目录结构如下: 1234567891011121314Git 目录结构.git/├── HEAD			当前branch的head├── config			配置信息├── description├── hooks├── info│   └── exclude├── objects			保存g">
+<meta name="twitter:description" content="分布式的Git相对于svn优势已经很明显了。本文花几分钟时间简单探讨下Git 的思想和主要的对象类型。 首先来看下Git的文件目录。某个工程目录中，执行在git init 之后，打开.git文件夹可以看到 git 目录结构如下: 1234567891011121314Git 目录结构.git/├── HEAD        当前branch的head├── config      配置信息├──">
 
 
 
@@ -342,8 +342,9 @@
       
 
       
-        <p>首先来看下Git的文件目录。某个工程目录中，执行在git init 之后，打开.git文件夹可以看到 git 目录结构如下:</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">Git 目录结构</span><br><span class="line">.git/</span><br><span class="line">├── HEAD			当前branch的head</span><br><span class="line">├── config			配置信息</span><br><span class="line">├── description</span><br><span class="line">├── hooks</span><br><span class="line">├── info</span><br><span class="line">│   └── exclude</span><br><span class="line">├── objects			保存git对象 &lt;commit tag tree blob&gt;</span><br><span class="line">│   ├── info</span><br><span class="line">│   └── pack</span><br><span class="line">└── refs			保存branch和tag对应的commit</span><br><span class="line">    ├── heads		branch对应的commit</span><br><span class="line">    └── tags		tag对应的commit</span><br></pre></td></tr></table></figure>
+        <p>分布式的Git相对于svn优势已经很明显了。本文花几分钟时间简单探讨下Git 的思想和主要的对象类型。</p>
+<p>首先来看下Git的文件目录。某个工程目录中，执行在git init 之后，打开.git文件夹可以看到 git 目录结构如下:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">Git 目录结构</span><br><span class="line">.git/</span><br><span class="line">├── HEAD        当前branch的head</span><br><span class="line">├── config      配置信息</span><br><span class="line">├── description</span><br><span class="line">├── hooks</span><br><span class="line">├── info</span><br><span class="line">│   └── exclude</span><br><span class="line">├── objects     保存git对象 &lt;commit tag tree blob&gt;</span><br><span class="line">│   ├── info</span><br><span class="line">│   └── pack</span><br><span class="line">└── refs        保存branch和tag对应的commit</span><br><span class="line">    ├── heads   branch对应的commit</span><br><span class="line">    └── tags    tag对应的commit</span><br></pre></td></tr></table></figure>
 <h5 id="Git-Objects"><a href="#Git-Objects" class="headerlink" title="Git Objects"></a>Git Objects</h5><p>git 对象是git实现的基础。</p>
 <p>Git show –help 的时候可以看到Git里面有四种对象的描述 : blobs, trees, tags, commits。这就是Git 内部主要的四种对象。 </p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">git show --help</span><br><span class="line"></span><br><span class="line">DESCRIPTION</span><br><span class="line">       Shows one or more objects (blobs, trees, tags and commits).</span><br><span class="line"></span><br><span class="line">       For commits it shows the log message and textual diff. It also presents</span><br><span class="line">       the merge commit in a special format as produced by git diff-tree --cc.</span><br><span class="line"></span><br><span class="line">       For tags, it shows the tag message and the referenced objects.</span><br><span class="line"></span><br><span class="line">       For trees, it shows the names (equivalent to git ls-tree with</span><br><span class="line">       --name-only).</span><br><span class="line"></span><br><span class="line">       For plain blobs, it shows the plain contents.</span><br></pre></td></tr></table></figure>
@@ -389,6 +390,12 @@
     
 
     <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/Git/" rel="tag"># Git</a>
+          
+        </div>
       
 
       
@@ -520,7 +527,7 @@
               
               <div class="site-state-item site-state-tags">
                 <a href="/tags/index.html">
-                  <span class="site-state-item-count">15</span>
+                  <span class="site-state-item-count">16</span>
                   <span class="site-state-item-name">tags</span>
                 </a>
               </div>
